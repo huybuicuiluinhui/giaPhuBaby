@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Page, Text, useNavigate } from "zmp-ui";
+import { Box, Page, Text } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import Images from "../../../static";
 import ItemMyVoucher from "../itemMyVoucher";
 import voucherApi from "../../../apis/voucher.apis";
@@ -20,6 +22,7 @@ const MyVoucher = () => {
   const [description, setDescription] = React.useState("");
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (Math.ceil(scrollTop) + clientHeight >= scrollHeight) {
         loadmore();

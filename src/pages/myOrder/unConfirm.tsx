@@ -54,6 +54,7 @@ export default function UnConfirm() {
 
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (scrollTop + clientHeight === scrollHeight) {
         loadmore();

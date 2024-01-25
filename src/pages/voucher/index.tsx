@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Page, Text, useNavigate } from "zmp-ui";
+import { Box, Page, Text } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import Images from "../../static";
 import "./styles.css";
 import voucherApi from "../../apis/voucher.apis";

@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Input, Page, useNavigate } from "zmp-ui";
+import { Box, Input, Page } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import Header from "../../components/header";
 import Images from "../../static";
 import "./styles.css";
@@ -15,6 +17,7 @@ const HandBook = () => {
   const listInnerRef = React.useRef(null);
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       console.log(Math.round(scrollTop + clientHeight));
       console.log("scrollHeight", scrollHeight);

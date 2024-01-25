@@ -28,7 +28,6 @@ import { getIsFollowOA } from "../../utils/auth";
 import ModalSearch from "./modalSearch";
 import ModalSearchKey from "../../components/modalSearchKey";
 import ModaNotify from "../../components/modaNotify";
-import { followOA } from "zmp-sdk/apis";
 
 export const TitleHome = ({
   icon,
@@ -130,6 +129,7 @@ const Home = () => {
     },
   });
 
+
   const { data: dataPointHome } = useQuery({
     queryKey: ["dataPointHome"],
     queryFn: () => {
@@ -144,6 +144,7 @@ const Home = () => {
       alert("có lỗi xảy ra");
     }
   };
+
 
   const getProblemList = async () => {
     if (selectedBaby?.name && page !== 1) {
@@ -204,6 +205,7 @@ const Home = () => {
     }
   };
   const addMilestonWithMonthBaby = async () => {
+    console.log(selectedBaby)
     try {
       let formData = new FormData();
       formData.append("id_user_profiles", String(selectedBaby?.id));
@@ -220,15 +222,7 @@ const Home = () => {
       console.error(error);
     }
   };
-  const followOAFuc = () => {
-    followOA({
-      id: "3995727626295309125",
-      success: () => {
-        saveFollowOA();
-      },
-      fail: (err) => {},
-    });
-  };
+
 
 
   const getHeightAndWeightWHO = async () => {
@@ -1092,7 +1086,7 @@ const Home = () => {
                 className="bg-[#01b2FF]  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
                 onClick={() => {
                   setShowFollow(false);
-                  followOAFuc();
+                  // followOAFuc();
                 }}
               >
                 Tiếp tục

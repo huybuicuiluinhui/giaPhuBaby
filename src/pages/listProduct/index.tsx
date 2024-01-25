@@ -52,6 +52,7 @@ const ListProduct = () => {
 
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (scrollTop + clientHeight === scrollHeight) {
         loadmore();

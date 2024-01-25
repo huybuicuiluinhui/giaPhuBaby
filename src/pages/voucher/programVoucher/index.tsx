@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Page, Text, useNavigate, useSnackbar } from "zmp-ui";
+import { Box, Page, Text, useSnackbar } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import Images from "../../../static";
 import Header from "../../../components/header";
 import ItemProgramVoucher from "../itemProgramVoucher";
@@ -20,6 +22,7 @@ const ProgramVoucher = () => {
   const [lastPage, setLastpage] = React.useState(1);
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (Math.ceil(scrollTop) + clientHeight >= scrollHeight) {
         loadmore();

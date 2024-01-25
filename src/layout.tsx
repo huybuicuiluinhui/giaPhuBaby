@@ -1,9 +1,8 @@
 import React from "react";
-import { App, ZMPRouter, AnimationRoutes, SnackbarProvider } from "zmp-ui";
+import { App, ZMPRouter, SnackbarProvider } from "zmp-ui";
 import { RecoilRoot } from "recoil";
 import AppNavigation from "./navigation";
-// import { Provider } from "react-redux";
-// import { store } from "../redux/store";
+import {Routes,Route} from "react-router-dom";
 import {
   useQuery,
   useMutation,
@@ -11,9 +10,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-// import { AppProvider } from "./contexts/app.context";
 import { AppProvider } from "./contexts/app.context";
-import ModalRequestPhone from "./pages/modalRequestPhone";
 
 import '../src/css/app.css'
 import '../src/css/bottomTabbar.css'
@@ -26,21 +23,23 @@ const Layout = () => {
 
 
   return (
-    // <Provider store={store}>
+
    <div  className='max-w-[455px] m-auto'>
-     <RecoilRoot>
-       <App>
-         <SnackbarProvider>
-           <ZMPRouter>
+
+
+
+
              <QueryClientProvider client={queryClient}>
-               <AppProvider>
-                 <AppNavigation />
-               </AppProvider>
+                 <AppProvider>
+                     <Routes>
+                         <Route path={'/*'} element={<AppNavigation/>}/>
+                     </Routes>
+                 </AppProvider>
+
+
              </QueryClientProvider>
-           </ZMPRouter>
-         </SnackbarProvider>
-       </App>
-     </RecoilRoot>
+
+
    </div>
     // </Provider>
   );

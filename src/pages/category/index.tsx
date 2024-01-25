@@ -34,6 +34,7 @@ export default function Category() {
   const listInnerRef = React.useRef(null);
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
 
       if (Math.round(scrollTop + clientHeight) === scrollHeight) {

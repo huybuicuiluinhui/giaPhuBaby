@@ -77,6 +77,7 @@ export default function ItemCart({
     setQuantity(item.quantity);
   }, [item]);
 
+  // @ts-ignore
   return (
     <div className="border-b-8 border-b-[#EBEBEB]" key={item.id}>
       <div
@@ -183,6 +184,7 @@ export default function ItemCart({
       {/* combo  */}
       {!!item && !!item.product_combo && !!item.product_combo.length && (
         <div>
+          {/*// @ts-ignore*/}
           {item.product_combo.map((item) => {
             return (
               <div

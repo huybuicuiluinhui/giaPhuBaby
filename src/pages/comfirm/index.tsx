@@ -2,23 +2,23 @@ import React from "react";
 import Images from "../../static";
 import { useNavigate } from "react-router-dom";
 import path from "../../constants/path";
-import { followOA } from "zmp-sdk/apis";
+// import { followOA } from "zmp-sdk/apis";
 import { saveIsFollowOA } from "../../utils/auth";
 const Comfirm = () => {
-  const followOAFuc = () => {
-    followOA({
-      id: "3995727626295309125",
-      success: () => {
-        saveIsFollowOA();
-        navigate(-1);
-      },
-      fail: (err) => {
-        if (err.code === -201) {
-          alert("Lỗi followOA");
-        }
-      },
-    });
-  };
+  // const followOAFuc = () => {
+  //   followOA({
+  //     id: "3995727626295309125",
+  //     success: () => {
+  //       saveIsFollowOA();
+  //       navigate(-1);
+  //     },
+  //     fail: (err) => {
+  //       if (err.code === -201) {
+  //         alert("Lỗi followOA");
+  //       }
+  //     },
+  //   });
+  // };
   const navigate = useNavigate();
   return (
     <div className="absolute z-[9999] p-0 m-0 w-full h-full flex flex-cols items-center justify-center bg-[#222222]">
@@ -37,7 +37,7 @@ const Comfirm = () => {
           </span>
           <button
             className="bg-[#01b2FF]  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
-            onClick={() => followOAFuc()}
+            // onClick={() => followOAFuc()}
           >
             Tiếp tục
           </button>

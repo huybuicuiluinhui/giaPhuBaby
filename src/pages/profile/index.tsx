@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { Modal, Page, useNavigate } from "zmp-ui";
+import { Modal, Page } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import Images from "../../static";
 import "./styles.css";
 import { Swiper, SwiperSlide } from "swiper/react";

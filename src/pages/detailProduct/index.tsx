@@ -20,7 +20,6 @@ import { baseUrl } from "../../api";
 import cartApi from "../../apis/cart.apis";
 import path from "../../constants/path";
 import LoadingPage from "../loadingScreen";
-import { openChat } from "zmp-sdk/apis";
 import ModaNotify from "../../components/modaNotify";
 const NUMLIMIT = 250;
 export default function DetailProduct() {
@@ -93,17 +92,7 @@ export default function DetailProduct() {
       console.log("error comment", e);
     },
   });
-  const openChatScreen = async () => {
-    try {
-      await openChat({
-        type: "oa",
-        id: "3995727626295309125",
-        message: "",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   const buyCombo = useMutation({
     mutationFn: (id: number) => cartApi.buyCombo(id),
@@ -445,7 +434,7 @@ export default function DetailProduct() {
         </div>
         {/* chat  */}
         <div
-          onClick={() => openChatScreen()}
+          // onClick={() => openChatScreen()}
           className="flex-1 flex h-12 items-center justify-center border-l border-r border-l-[#DBDBDB] border-r-[#DBDBDB]"
         >
           <svg width="24" height="22" viewBox="0 0 24 22" fill="none">

@@ -23,6 +23,7 @@ const VideoTab = ({ choose }: { choose: number }) => {
   });
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (Math.ceil(scrollTop) + clientHeight === scrollHeight) {
         loadmore();

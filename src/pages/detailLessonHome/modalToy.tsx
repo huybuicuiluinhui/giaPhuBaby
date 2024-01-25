@@ -7,7 +7,7 @@ import { AppContext } from "../../contexts/app.context";
 import Images from "../../static";
 import { checkBgIconObject } from "../../utils/checkBgIcon";
 import { dataStatic } from "../../constants/data";
-import { openWebview } from "zmp-sdk/apis";
+// import { openWebview } from "zmp-sdk/apis";
 import path from "../../constants/path";
 import { useNavigate } from "react-router-dom";
 

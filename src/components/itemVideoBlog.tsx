@@ -59,6 +59,7 @@ const ItemVideoBlog = (props: IProps) => {
       return;
     }
   };
+
   // @ts-ignore
   const ReadMoreComment = ({ children }) => {
     if (children) {
@@ -174,6 +175,7 @@ const ItemVideoBlog = (props: IProps) => {
     getDataComment();
   }, []);
 
+  // @ts-ignore
   return (
     <div className="p-2 border-b-8 border-b-[#EFEFEF]">
       <div
@@ -211,6 +213,7 @@ const ItemVideoBlog = (props: IProps) => {
       <p className="text-xs font-['Nunito'] mb-2 text-[#01b2ff] w-full">
         {item?.category_name}
       </p>
+      {/*// @ts-ignore*/}
       <ReadMore>{item?.content}</ReadMore>
       <div className="flex items-center w-full">
         <div className="py-2 pr-2">
@@ -291,6 +294,7 @@ const ItemVideoBlog = (props: IProps) => {
                       <span className="text-xs font-['Nunito'] font-bold  text-[#333333]">
                         {el.user_name}
                       </span>
+                      {/*// @ts-ignore*/}
                       <ReadMoreComment>{el.comment}</ReadMoreComment>
                     </div>
                   </div>

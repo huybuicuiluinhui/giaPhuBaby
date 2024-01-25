@@ -1,9 +1,11 @@
 import React from "react";
-import { Input, Modal, Page, useNavigate } from "zmp-ui";
+import { Input, Modal, Page} from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import HeaderMB from "../header";
 import "./styles.css";
 import Images from "../../../static";
-import { chooseImage } from "zmp-sdk/apis";
+// import { chooseImage } from "zmp-sdk/apis";
 import askDoctorApi from "../../../apis/askDoctor.apis";
 import { CategoryQuestion } from "../../../types/askDoctor.type";
 import { getAccessTokenFromLS } from "../../../utils/auth";

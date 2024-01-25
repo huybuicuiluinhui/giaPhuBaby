@@ -3,7 +3,7 @@ import React, { FC, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { BottomNavigation } from "zmp-ui";
 import Images from "../static";
-import { openChat } from "zmp-sdk/apis";
+// import { openChat } from "zmp-sdk/apis";
 
 const tabs = {
   "/": {
@@ -46,18 +46,18 @@ export const CustomNavigationBotom: FC = () => {
     setActiveTab(location.pathname);
     return BOTTOM_NAVIGATION_PAGES.includes(location.pathname);
   }, [location]);
-  const openChatScreen = async () => {
-    try {
-      await openChat({
-        type: "oa",
-        id: "3995727626295309125",
-        message: "",
-      });
-    } catch (error) {
-      // xử lý khi gọi api thất bại
-      console.log(error);
-    }
-  };
+  // const openChatScreen = async () => {
+  //   try {
+  //     await openChat({
+  //       type: "oa",
+  //       id: "3995727626295309125",
+  //       message: "",
+  //     });
+  //   } catch (error) {
+  //     // xử lý khi gọi api thất bại
+  //     console.log(error);
+  //   }
+  // };
   if (BottomNav) {
     return (
         <div className="flex items-center bg-white pt-3 pb-1 relative bottom-0">
@@ -97,7 +97,7 @@ export const CustomNavigationBotom: FC = () => {
           ))}
           <div
               className="absolute w-16 h-16 rounded-full overflow-hidden flex items-center -top-7 z-[10] left-1/2 -translate-x-1/2 self-center justify-center bg-white"
-              onClick={() => openChatScreen()}
+              // onClick={() => openChatScreen()}
           >
             <div className=" w-14 h-14 rounded-full flex items-center justify-center bg-[#f5f7ff]">
               <img src={Images.iconCall} className="w-6 h-6 object-contain " />

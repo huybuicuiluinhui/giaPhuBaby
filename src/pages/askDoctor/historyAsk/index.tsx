@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Page, useNavigate, useSnackbar } from "zmp-ui";
+import { Box, Page, useSnackbar } from "zmp-ui";
 import Images from "../../../static";
 import Header from "../../../components/header";
 import askDoctorApi from "../../../apis/askDoctor.apis";
 import SpinLoad from "../../../components/spinLoad";
 import { ItemQuestion } from "../../../types/askDoctor.type";
+import { useNavigate } from 'react-router-dom';
 
 // @ts-ignore
 const InfoDoctor = ({ type, name, majors }) => {

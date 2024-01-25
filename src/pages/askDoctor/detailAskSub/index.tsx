@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Page, useNavigate } from "zmp-ui";
+import { Page } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import HeaderMB from "../header";
 import Images from "../../../static";
 import ItemAsk from "../itemAsk";

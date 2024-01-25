@@ -76,6 +76,7 @@ export default function TopProduct() {
   const onScroll = () => {
     if (type === 2) return;
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (scrollTop + clientHeight === scrollHeight) {
         loadmore();

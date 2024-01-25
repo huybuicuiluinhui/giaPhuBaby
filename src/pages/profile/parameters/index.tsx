@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Box, Page, Spinner, useNavigate } from "zmp-ui";
+import { Box, Page, Spinner} from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import axios from "axios";
 import { AppContext } from "../../../contexts/app.context";
 import API from "../../../api";

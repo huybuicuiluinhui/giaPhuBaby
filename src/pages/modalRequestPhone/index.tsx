@@ -1,14 +1,14 @@
-import React, {Suspense, lazy, useContext} from "react";
+import React, {Suspense, lazy, useContext, useEffect} from "react";
 import Images from "../../static";
 import {AppContext} from "../../contexts/app.context";
 import authApi from "../../apis/auth.apis";
 import {useMutation} from "@tanstack/react-query";
-import {closeApp, getAccessToken, getPhoneNumber} from "zmp-sdk/apis";
+
 import {saveListBabyToLS} from "../../utils/auth";
 import profileApi from "../../apis/profileC.apis";
-import axios from "axios";
 import LoadingPage from "../loadingScreen";
 import Swal from 'sweetalert2'
+
 const AddBaby = lazy(() => import("../addBaby"));
 const ModalRequestPhone = () => {
     const {
@@ -35,7 +35,6 @@ const ModalRequestPhone = () => {
     const getProfile = async () => {
         try {
             const res = await profileApi.getUserProfile();
-
             setProfile(res.data.data.user);
             setListBaby(res.data.data.baby);
             saveListBabyToLS(res.data.data.baby);
@@ -44,17 +43,13 @@ const ModalRequestPhone = () => {
             console.log(error);
         }
     };
+    useEffect(() => {
+            getProfile()
 
-    //
-    const closeMiniApp = async () => {
-        try {
-            setProfile(null);
-            setIsAuthenticated(false);
-            await closeApp({});
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    }, [phoneUser]);
+
+
+
     const logintMutation = useMutation({
         mutationFn: (body: { phone: string }) => authApi.login(body),
     });

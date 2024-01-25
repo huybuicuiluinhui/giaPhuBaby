@@ -1,6 +1,7 @@
 import React from "react";
 import Images from "../../../static";
-import { useNavigate } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import { showTimeAgo } from "../../../module";
 import { API_URL_IMAGE } from "../../../constants/utils";
 

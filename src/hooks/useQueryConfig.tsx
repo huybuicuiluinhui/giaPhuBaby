@@ -1,3 +1,4 @@
+// @ts-ignore
 import { isUndefined, omitBy } from "lodash";
 
 import useQueryParams from "./useQueryParams";

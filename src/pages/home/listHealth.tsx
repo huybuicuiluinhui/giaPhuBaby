@@ -3,7 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Images from "../../static";
 import askDoctorApi from "../../apis/askDoctor.apis";
-import { useNavigate } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import { ItemQuestion } from "../../types/askDoctor.type";
 import { API_URL_IMAGE } from "../../constants/utils";
 import { useQuery } from "@tanstack/react-query";

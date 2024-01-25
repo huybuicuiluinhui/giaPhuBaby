@@ -20,6 +20,7 @@ export default function FlashSale(props: IProps) {
   return (
     <div className="relative">
       <Swiper
+          // @ts-ignore
         onSwiper={(swiper) => {
             // @ts-ignore
           swiperRef.current = swiper;

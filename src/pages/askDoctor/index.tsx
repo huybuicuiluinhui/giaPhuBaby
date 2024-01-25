@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { Box, Page, useNavigate } from "zmp-ui";
+import { Box, Page } from "zmp-ui";
+import { useNavigate } from 'react-router-dom';
+
 import Images from "../../static";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ItemAsk from "./itemAsk";
@@ -64,6 +66,7 @@ const AskDoctor = () => {
   const listInnerRef = React.useRef(null);
   const onScroll = () => {
     if (listInnerRef.current) {
+      // @ts-ignore
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (Math.ceil(scrollTop) + clientHeight === scrollHeight) {
         loadmore();

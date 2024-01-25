@@ -14,7 +14,7 @@ import { saveListBabyToLS } from "../../utils/auth";
 import InputBaby from "../addBaby/inputBaby";
 import { dataFamily } from "../addBaby/family";
 import { useLocation, useNavigate } from "react-router-dom";
-import { chooseImage } from "zmp-sdk/apis";
+// import { chooseImage } from "zmp-sdk/apis";
 const EditBaby = () => {
   const navigate = useNavigate();
   const location = useLocation();

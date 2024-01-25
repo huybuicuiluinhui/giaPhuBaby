@@ -1,12 +1,11 @@
 import React, {useContext} from "react";
 import { Route, Routes } from "react-router-dom";
-import { Box } from "zmp-ui";
 import { CustomNavigationBotom } from "./bottomTab";
 import Home from "../pages/home";
 import Shop from "../pages/shop";
 import Milestone from "../pages/milestone";
 import Profile from "../pages/profile";
-import { getSystemInfo } from "zmp-sdk";
+// import { getSystemInfo } from "zmp-sdk";
 import Community from "../pages/community";
 import DetailProduct from "../pages/detailProduct";
 import path from "../constants/path";
@@ -54,17 +53,18 @@ import Comfirm from "../pages/comfirm";
 import LisPostWithProblem from "../pages/listPostWithProblem";
 import DetailPostProblem from "../pages/listPostWithProblem/detailPostProblem";
 import {AppContext} from "../contexts/app.context";
+import {Box} from "zmp-ui";
 const AppNavigation = () => {
-  if (getSystemInfo().platform === "android") {
-    const androidSafeTop = Math.round(
-      (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
-        window.devicePixelRatio
-    );
-    document.body.style.setProperty(
-      "--zaui-safe-area-inset-top",
-      `${androidSafeTop}px`
-    );
-  }
+  // if (getSystemInfo().platform === "android") {
+  //   const androidSafeTop = Math.round(
+  //     (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
+  //       window.devicePixelRatio
+  //   );
+  //   document.body.style.setProperty(
+  //     "--zaui-safe-area-inset-top",
+  //     `${androidSafeTop}px`
+  //   );
+  // }
 
   const {
     phoneUser,
