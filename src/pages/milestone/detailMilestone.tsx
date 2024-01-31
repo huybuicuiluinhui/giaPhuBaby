@@ -13,9 +13,9 @@ import { convertTimeByFormat } from "../../module";
 
 // @ts-ignore
 const DetailMilestones = ({
-                            // @ts-ignore
+  // @ts-ignore
   data,
-                            // @ts-ignore
+  // @ts-ignore
   isOpenVd, // @ts-ignore
   handleSetIdListVideo, // @ts-ignore
   dataCheckVoucher, // @ts-ignore
@@ -60,7 +60,7 @@ const DetailMilestones = ({
       )}
       {dataCheckVoucher && (
         <div className="w-[90%]  bg-white flex flex-col justify-center items-center py-4 px-[17px] border rounded-[30px] mx-auto mb-4">
-          <p className="text-center text-sm  font-semibold  leading-[18px] text-[#01b2ff] w-full">
+          <p className="text-center text-sm  font-semibold  leading-[18px] text-main w-full">
             Cột mốc đã đạt được {dataCheckVoucher?.title}. Hãy cố gắng giúp bé
             hoàn thiện các cột mốc
           </p>
@@ -80,7 +80,7 @@ const DetailMilestones = ({
         <List>
           {!!data &&
             !!data.length &&
-              // @ts-ignore
+            // @ts-ignore
             data.map((item, index) => {
               return (
                 <div key={index}>
@@ -110,7 +110,7 @@ const DetailMilestones = ({
                     return (
                       <div
                         key={index2}
-                        className="w-full border-[#01B2FF] border-solid rounded-xl border-2  mb-4 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] "
+                        className="w-full border-main border-solid rounded-xl border-2  mb-4 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] "
                       >
                         <div className="flex items-center  py-2  px-2  ">
                           <div
@@ -167,7 +167,7 @@ const DetailMilestones = ({
                           >
                             {!!item2?.video &&
                               !!item2.video.length &&
-                                // @ts-ignore
+                              // @ts-ignore
                               item2?.video?.map((action, actionIndex) => {
                                 return (
                                   <SwiperSlide
@@ -339,7 +339,7 @@ const DetailMilestones = ({
         onClose={() => {
           setPopupVisible(false);
         }}
-          // @ts-ignore
+        // @ts-ignore
         description={dataAction}
       >
         <div className="h-[0px] w-full border-dashed border-blue-600 border-t-[2px]	mt-2" />

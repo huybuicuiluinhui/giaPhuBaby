@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Modal, Page } from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Images from "../../static";
 import "./styles.css";
@@ -21,6 +21,8 @@ import ModalAddProduct from "../shop/modalAddProduct";
 import { listCategoryBlog } from "./dataProfile";
 import HeaderBackHome from "../../components/headerBackHome";
 import ModaNotify from "../../components/modaNotify";
+import { IListAccess } from "../home/typesHome";
+import { listIconProfile } from "../home/dataStaticHome";
 interface IListCategory {
   title: string;
   icon: string;
@@ -50,6 +52,7 @@ const Profile = () => {
   const [dataProblem, setDataProBlem] = React.useState<Problem[]>([]);
   const [dataProduct, setDataProduct] = React.useState<IProductShop[]>([]);
   const [listCategory] = React.useState<IListCategory[]>(listCategoryBlog);
+  const [listIconUtilities] = React.useState<IListAccess[]>(listIconProfile);
   const getDataProblem = async () => {
     try {
       let formData = new FormData();
@@ -195,7 +198,7 @@ const Profile = () => {
   return (
     <div className="h-screen p-0 m-0">
       <div className="overflow-y-hidden sticky top-0 z-20">
-        <HeaderBackHome title="Phương pháp nuôi con khoa học" />
+        <HeaderBackHome title="Quản lý tài khoản" />
       </div>
       <Page hideScrollbar className="w-full h-full pb-56 bg-[#FFF1F4]">
         <div className="">
@@ -216,31 +219,27 @@ const Profile = () => {
             </div>
             <div className="flex items-center justify-between w-full pl-1">
               <span className="paytoneOne text-sm font-bold text-[#332d37]">
-                Danh mục
+                Tiện ích
               </span>
             </div>
           </div>
-          <div className="grid grid-cols-5 bg-[#FFF1F4] rounded-xl p-2 items-start justify-center">
-            {!!listCategory &&
-              !!listCategory.length &&
-              listCategory?.map((item, i) => {
+          <div className="grid grid-cols-4 rounded-xl p-2 items-start justify-center">
+            {!!listIconUtilities &&
+              !!listIconUtilities.length &&
+              listIconUtilities?.map((item, i) => {
                 return (
                   <div
                     className="flex flex-col items-center justify-center"
                     key={i}
                     onClick={() => {
-                      navigate(path.listBlog, {
-                        state: {
-                          id: item.id,
-                          title: item.title,
-                          age: selectedBaby?.realAge,
-                        },
-                      });
+                      if (item.screen === "") {
+                        setShowAlert(true);
+                      } else {
+                        navigate(item.screen);
+                      }
                     }}
                   >
-                    <div className="bg-[#10B2ff] rounded-[50%] p-2">
-                      <img src={item.icon} className="w-8 h-8 object-contain" />
-                    </div>
+                    <img src={item.icon} className="w-11 h-11 object-contain" />
                     <div
                       className="text-[#828282] font-bold text-[11px] text-center mb-2 mt-1"
                       dangerouslySetInnerHTML={{ __html: item.title }}
@@ -312,7 +311,7 @@ const Profile = () => {
                                 </span>
                               )}
                               {item.type_result === 1 && (
-                                <span className="text-xs font-bold text-[#01B2FF]">
+                                <span className="text-xs font-bold text-main">
                                   Đã trả lời
                                 </span>
                               )}
@@ -380,7 +379,7 @@ const Profile = () => {
             })}
         </div>
         {/*Giải đáp thắc mắc */}
-        <div className="pt-5 px-2 w-full h-auto flex flex-col items-center">
+        {/* <div className="pt-5 px-2 w-full h-auto flex flex-col items-center">
           <div className="bg-[#0e1c7b] w-full h-8 rounded-t-lg flex items-center pl-3">
             <svg
               className=""
@@ -402,9 +401,9 @@ const Profile = () => {
             <div className="p-4 relative">
               <textarea
                 value={contentQues}
-                  // @ts-ignore
+                // @ts-ignore
                 cols="30"
-                  // @ts-ignore
+                // @ts-ignore
                 rows="10"
                 className="resize-none no-scrollbar w-full h-auto border-2 border-[#1C58D9] outline-none text-[#06164B] openSans text-sm font-semibold px-4 py-4"
                 onChange={(e) => setContentQues(e.target.value)}
@@ -440,7 +439,7 @@ const Profile = () => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
         {/*Chat gpt trả lời */}
         {chatAI && (
           <div className="px-4">

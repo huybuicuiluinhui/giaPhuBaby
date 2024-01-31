@@ -88,7 +88,7 @@ const Cart = () => {
     if (
       !!dataCart &&
       !!dataCart.data &&
-        // @ts-ignore
+      // @ts-ignore
       dataCart?.data?.total_money_agency &&
       !!voucherDiscount
     ) {
@@ -137,7 +137,7 @@ const Cart = () => {
       !!dataAddressDefault.data.data.fee_ship &&
       !!dataCart &&
       !!dataCart.data &&
-        // @ts-ignore
+      // @ts-ignore
       !!dataCart.data.total_money_agency
     ) {
       let feeshipN = dataAddressDefault.data.data.fee_ship;
@@ -210,10 +210,10 @@ const Cart = () => {
         {/* địa chỉ */}
         <div className="px-2 py-4">
           <div className="shadow-[0px_0px_10px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-col gap-2 w-full  items-start py-3 rounded-lg">
-            <p className=" text-sm font-['Nunito'] font-bold text-[#01b2ff] ml-3">
+            <p className=" text-sm font-['Nunito'] font-bold text-main ml-3">
               Giao hàng tận nơi
             </p>
-            <div className="h-[1px] bg-[#01b2ff] w-full" />
+            <div className="h-[1px] bg-main w-full" />
             <div className="flex justify-between items-center w-full pl-3">
               <p className="text-sm font-['Nunito'] font-medium text-[#263238] ">
                 Giao tới
@@ -222,7 +222,7 @@ const Cart = () => {
                 className="px-3 py-1"
                 onClick={() => navigate(path.listAddress)}
               >
-                <p className="text-sm font-['Nunito'] font-bold text-[#01b2ff]">
+                <p className="text-sm font-['Nunito'] font-bold text-main">
                   Chọn địa chỉ
                 </p>
               </div>
@@ -337,7 +337,7 @@ const Cart = () => {
               </p>
               {!!dataCart &&
                 !!dataCart.data &&
-                  // @ts-ignore
+                // @ts-ignore
                 dataCart?.data?.total_money_agency && (
                   <div className="text-xs font-['Nunito'] font-bold  text-[#d60013] ">
                     {/*// @ts-ignore*/}
@@ -364,7 +364,7 @@ const Cart = () => {
               </div>
               <div
                 className="flex items-center"
-                  // @ts-ignore
+                // @ts-ignore
                 onClick={() => refVoucher.current?.setShowModalVoucher(true)}
               >
                 {!!voucherDiscount && (
@@ -435,7 +435,7 @@ const Cart = () => {
                 </p>
               </div>
               <button
-                  // @ts-ignore
+                // @ts-ignore
                 disabled={buyMutation.isLoading}
                 onClick={() => onSubmitBuy()}
                 className="bg-[#f26091] flex flex-col justify-center py-3 w-[50%] items-center rounded-lg"

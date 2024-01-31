@@ -102,8 +102,8 @@ const ListPresent = () => {
           src={
             e.GiftImage
               ? `https://quantri.lineabon.com.vn/${e.GiftImage}`
-                // @ts-ignore
-              : Images.bifidoImage
+              : // @ts-ignore
+                Images.bifidoImage
           }
           alt=""
           className="w-[80px] h-[87px] object-cover "
@@ -141,7 +141,7 @@ const ListPresent = () => {
       </div>
       <div className="bg-white w-full py-3 absolute bottom-0 left-1/2 -translate-x-1/2">
         <div
-          className=" bg-[#01B2FF] flex flex-col mx-auto  justify-center items-center  w-[70%] py-2 rounded-3xl"
+          className=" bg-main flex flex-col mx-auto  justify-center items-center  w-[70%] py-2 rounded-3xl"
           onClick={() => onClickConfirmButton()}
         >
           <p className=" text-white text-center"> Tích điểm</p>

@@ -83,7 +83,7 @@ const Shop = () => {
 
   return (
     <div className="flex flex-col w-full h-full bg-[#F7F8FD] relative">
-      <div className="bg-[#01B2FF] pt-14 pb-4">
+      <div className="bg-main pt-14 pb-4">
         {/* header  */}
         <div className="flex items-center px-2">
           <div
@@ -101,8 +101,7 @@ const Shop = () => {
             className="text-center text-sm font-['Nunito'] font-bold  text-white w-full pr-8"
             onClick={() => navigate(`${path.home}${24}`)}
           >
-            {selectedBaby?.name} -{" "}
-            {/*// @ts-ignore*/}
+            {selectedBaby?.name} - {/*// @ts-ignore*/}
             {showAgeByMonth(selectedBaby?.realAge) || "0 tuổi"}
           </div>
         </div>

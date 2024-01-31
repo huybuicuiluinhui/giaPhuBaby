@@ -50,7 +50,7 @@ const HeaderProfile = () => {
                 src={Images.iconCheckMB}
                 className="w-3 h-3 object-contain"
               />
-              <span className="flex-grow text-[10px] pl-2 text-[#01B2FF] font-bold line-clamp-1">
+              <span className="flex-grow text-[10px] pl-2 text-main font-bold line-clamp-1">
                 Bé: {selectedBaby?.name}
               </span>
             </div>

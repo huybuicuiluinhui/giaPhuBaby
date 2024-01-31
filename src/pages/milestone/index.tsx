@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Box, Page, Spinner} from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { Box, Page, Spinner } from "zmp-ui";
+import { useNavigate } from "react-router-dom";
 
 import DetailMilestones from "./detailMilestone";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -212,7 +212,7 @@ const Milestones = () => {
   const checkMilesIsDone = (id_milestones) => {
     if (!!dataMilestMonth && dataMilestMonth.length > 0) {
       const obj = dataMilestMonth.find(
-          // @ts-ignore
+        // @ts-ignore
         (data) => data.id_activity_milestones === id_milestones
       );
       if (obj) {
@@ -246,7 +246,7 @@ const Milestones = () => {
   return (
     <div className="w-screen h-screen bg-white">
       <div
-        className="bg-[#01B2FF] pt-14 pb-4"
+        className="bg-main pt-14 pb-4"
         style={{
           backgroundImage: `url(${Images.bgHeader})`,
           backgroundRepeat: "no-repeat",
@@ -268,7 +268,7 @@ const Milestones = () => {
           </div>
           <div
             className="w-full flex flex-col items-center justify-center pr-12"
-              // @ts-ignore
+            // @ts-ignore
             onClick={() => refListBaby.current?.setShow(true)}
           >
             <div className="flex items-center">
@@ -289,7 +289,7 @@ const Milestones = () => {
       </div>
       {/* danh sách các tháng */}
       {selectedBaby?.realAge === 0 ? (
-        <p className="text-base font-medium  text-[#01B2ff] text-center mt-2 mx-2">
+        <p className="text-base font-medium  text-main text-center mt-2 mx-2">
           Tính năng 'Cột Mốc' sẽ sẵn sàng khi bé của bạn đạt đến 1 tháng tuổi.
           Hãy tận hưởng những khoảnh khắc đáng yêu cùng bé nhé!
         </p>
@@ -317,7 +317,7 @@ const Milestones = () => {
               </svg>
             </div>
             <Swiper
-              onSwiper={(swiper:any) => {
+              onSwiper={(swiper: any) => {
                 // @ts-ignore
                 ref.current = swiper;
               }}
@@ -332,11 +332,8 @@ const Milestones = () => {
               {!!dataMonth &&
                 dataMonth.map((item, index) => {
                   return (
-
-
                     <SwiperSlide
                       onClick={() => {
-
                         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                         [
                           handleChooseMonth(item, index),
@@ -355,7 +352,7 @@ const Milestones = () => {
                               backgroundColor: "#fff",
                             }
                       }
-                        // @ts-ignore
+                      // @ts-ignore
                       key={item.id}
                       className="flex flex-col justify-center items-center"
                     >

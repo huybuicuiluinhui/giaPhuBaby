@@ -47,7 +47,7 @@ const ItemPostBlog = (props: IProps) => {
           ? text.slice(0, NUMLIMIT)
           : text}
         {isReadMore && (
-          <span className="text-xs font-['Nunito']  text-[#01b2ff]">
+          <span className="text-xs font-['Nunito']  text-main">
             ...Xem thêm &#62;&#62;
           </span>
         )}
@@ -72,7 +72,7 @@ const ItemPostBlog = (props: IProps) => {
           ? text.slice(0, NUMLIMIT)
           : text}
         {isReadMore && (
-          <span className="text-xs font-['Nunito']  text-[#01b2ff]">
+          <span className="text-xs font-['Nunito']  text-main">
             ...Xem thêm &#62;&#62;
           </span>
         )}
@@ -80,7 +80,7 @@ const ItemPostBlog = (props: IProps) => {
     );
   };
   const onClickLikeButton = () => {
-    let newTimer:any = timer;
+    let newTimer: any = timer;
     if (newTimer) {
       clearTimeout(newTimer);
     }
@@ -188,7 +188,7 @@ const ItemPostBlog = (props: IProps) => {
           {showTimeAgo(item.created_at)}
         </p>
       </div>
-      <p className="text-xs font-['Nunito'] mb-2 text-[#01b2ff] w-full">
+      <p className="text-xs font-['Nunito'] mb-2 text-main w-full">
         {item.category_name}
       </p>
       <ReadMore>{item.content}</ReadMore>
@@ -280,7 +280,7 @@ const ItemPostBlog = (props: IProps) => {
           {page < lastPage && (
             <div className="w-full flex items-center justify-between">
               <div className="mx-auto py-2 flex items-end" onClick={loadmore}>
-                <p className="text-center text-sm font-bold text-[#01b2ff]">
+                <p className="text-center text-sm font-bold text-main">
                   Xem thêm bình luận
                 </p>
                 <svg

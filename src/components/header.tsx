@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Header = ({ title }: { title: string }) => {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center pt-14 pb-4 bg-[#01B2FF]">
+    <div className="flex items-center pt-14 pb-4 bg-main">
       <div
         className="w-9 h-9 bg-white ml-3 rounded-full flex items-center justify-center"
         onClick={() => navigate(-1)}

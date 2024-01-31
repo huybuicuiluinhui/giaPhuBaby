@@ -157,7 +157,7 @@ export default function ItemCart({
                 </div>
                 <div
                   onClick={() => pressConfirm(1)}
-                  className="border-solid border-[#01B2FF] bg-white flex justify-center w-7 h-7 rounded-full items-center border"
+                  className="border-solid border-main bg-white flex justify-center w-7 h-7 rounded-full items-center border"
                 >
                   <p className=" text-sm font-['Nunito'] text-[#333333]">+</p>
                 </div>

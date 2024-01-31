@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Page, Text } from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Images from "../../../static";
 import ItemMyVoucher from "../itemMyVoucher";
@@ -118,7 +118,7 @@ const MyVoucher = () => {
   const handleUse = () => {};
   return (
     <Box className="h-screen p-0 m-0">
-      <div className="bg-[#01B2FF] h-[120px] w-full">
+      <div className="bg-main h-[120px] w-full">
         <div className="flex">
           <img
             src={Images.brick}

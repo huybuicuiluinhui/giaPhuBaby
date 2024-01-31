@@ -108,7 +108,7 @@ const SearchAsk = () => {
           onChange={(e) => setKeySearch(e.target.value)}
         />
         <div
-          className="bg-[#01B2FF] flex items-center justify-center rounded-lg w-[25%] h-9"
+          className="bg-main flex items-center justify-center rounded-lg w-[25%] h-9"
           onClick={() => {
             getDataQuesCate();
             setKeySearch("");

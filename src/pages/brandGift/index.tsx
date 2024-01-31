@@ -68,7 +68,7 @@ const BrandGift = () => {
             <span className="text-base font-bold text-[#4277d8] pr-2 ">
               {Utilities.formatDecimalNumber(e?.PointTotal.toString())}đ
             </span>
-            <div className="bg-[#01B2FF] rounded-[5px]  px-2 py-1 ">
+            <div className="bg-main rounded-[5px]  px-2 py-1 ">
               <span className="text-white text-sm font-semibold">Đổi quà</span>
             </div>
           </div>
@@ -96,7 +96,7 @@ const BrandGift = () => {
         <div>
           <Page className="w-full h-full pb-80" hideScrollbar>
             {!!dataPoint &&
-                // @ts-ignore
+              // @ts-ignore
               dataPoint[0]?.CustomerListPoints.map((e, i) => {
                 // @ts-ignore
                 return <Item key={i} e={e} />;

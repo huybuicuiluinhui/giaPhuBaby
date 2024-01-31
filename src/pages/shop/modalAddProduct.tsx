@@ -150,7 +150,7 @@ const ModalAddProduct = React.forwardRef((props: IProps, ref) => {
                 </p>
               )}
               {money && (
-                <p className="text-base text-end font-bold text-[#01b2ff]">
+                <p className="text-base text-end font-bold text-main">
                   {formatDecimalNumber(money)} đ
                 </p>
               )}
@@ -227,7 +227,7 @@ const ModalAddProduct = React.forwardRef((props: IProps, ref) => {
         <div className="flex items-center justify-center px-3 gap-3">
           <div
             onClick={() => addCart.mutate()}
-            className="border-solid border-[#01b2ff] bg-[#ddf5ff] flex flex-col justify-center py-3 items-center flex-1 border rounded"
+            className="border-solid border-main bg-[#ddf5ff] flex flex-col justify-center py-3 items-center flex-1 border rounded"
           >
             <p className="text-center font-['Nunito']  text-[#263238]">
               Thêm vào giỏ
@@ -235,7 +235,7 @@ const ModalAddProduct = React.forwardRef((props: IProps, ref) => {
           </div>
           <div
             onClick={() => buyNow.mutate()}
-            className="border-solid border-[#01b2ff] bg-[#01b2ff] flex flex-1 justify-center items-center py-3 border rounded"
+            className="border-solid border-main bg-main flex flex-1 justify-center items-center py-3 border rounded"
           >
             <svg width="26" height="10" viewBox="0 0 26 10" fill="none">
               <path

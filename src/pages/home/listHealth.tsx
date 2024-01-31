@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Images from "../../static";
 import askDoctorApi from "../../apis/askDoctor.apis";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import { ItemQuestion } from "../../types/askDoctor.type";
 import { API_URL_IMAGE } from "../../constants/utils";
@@ -41,7 +41,7 @@ export default function ListHealthHome() {
           !!outstandingQuesPage.data &&
           !!outstandingQuesPage.data.data &&
           !!outstandingQuesPage.data.data.length &&
-            // @ts-ignore
+          // @ts-ignore
           outstandingQuesPage.data.data.map((item, index) => {
             return (
               <SwiperSlide key={index}>
@@ -64,7 +64,7 @@ export default function ListHealthHome() {
                   </p>
                   <div className="flex items-center justify-between w-full my-2">
                     <div>Truy cập</div>
-                    <div className="flex items-center justify-center w-5 h-5 rounded-2xl bg-[#01B2FF]">
+                    <div className="flex items-center justify-center w-5 h-5 rounded-2xl bg-main">
                       <img
                         src={Images.iconArrowRightWhite}
                         className="w-[10px] h-[10px] object-contain"
@@ -80,7 +80,7 @@ export default function ListHealthHome() {
         className="w-10 h-10 bg-[#707070] opacity-75 overflow-hidden rounded-full flex items-center justify-center
         absolute top-1/3 z-10 left-0 -translate-y-1/3
         "
-          // @ts-ignore
+        // @ts-ignore
         onClick={() => swiperRef.current?.slidePrev()}
       >
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
@@ -109,7 +109,7 @@ export default function ListHealthHome() {
         className="w-10 h-10 bg-[#707070] opacity-75 overflow-hidden rounded-full flex items-center justify-center
         absolute top-1/3 z-10 right-0 -translate-y-1/3
         "
-          // @ts-ignore
+        // @ts-ignore
         onClick={() => swiperRef.current?.slideNext()}
       >
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none">

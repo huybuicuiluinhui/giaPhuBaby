@@ -5,7 +5,7 @@ import path from "../constants/path";
 const HeaderBackHome = ({ title }: { title: string }) => {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center pt-14 pb-4 bg-[#01B2FF]">
+    <div className="flex items-center pt-14 pb-4 bg-main">
       <div
         className="w-12 ml-2 h-12 flex items-center justify-center"
         onClick={() => navigate(path.home)}

@@ -14,7 +14,7 @@ interface IInputBaby {
 export default function InputBaby(props: IInputBaby) {
   return (
     <>
-      <p className="font-normal text-sm text-[#01B2FF] my-2">{props.title}</p>
+      <p className="font-normal text-sm text-main my-2">{props.title}</p>
       <div className="flex items-center">
         {!props.isLock ? (
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -109,7 +109,7 @@ export default function InputBaby(props: IInputBaby) {
           className="h-9 outline-none text-base border-none py-0 px-4 w-full placeholder:text-[#828282] text-black"
         />
       </div>
-      <div className="w-full h-[2px] bg-[#01B2FF] mt-1 mb-3"></div>
+      <div className="w-full h-[2px] bg-main mt-1 mb-3"></div>
     </>
   );
 }

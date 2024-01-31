@@ -35,7 +35,7 @@ const HeaderProblem = ({ onClick, title, image }) => {
                   src={Images.iconCheckMB}
                   className="w-3 h-3 object-contain"
                 />
-                <span className="flex-grow text-[10px] pl-2 text-[#01B2FF] font-bold">
+                <span className="flex-grow text-[10px] pl-2 text-main font-bold">
                   Quan trọng
                 </span>
               </div>

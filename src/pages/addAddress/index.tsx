@@ -38,22 +38,22 @@ const AddAdress = () => {
   const refProvince = React.useRef(null);
   const refDistrict = React.useRef(null);
   const refWard = React.useRef(null);
-  const setNameProvince = (arr:any) => {
+  const setNameProvince = (arr: any) => {
     setnameProvince(arr);
   };
-  const setIdProvince = (arr:any) => {
+  const setIdProvince = (arr: any) => {
     setidProvince(arr);
   };
-  const setIdDistrict = (arr:any) => {
+  const setIdDistrict = (arr: any) => {
     setidDistrict(arr);
   };
-  const setNameDistrict = (arr:any) => {
+  const setNameDistrict = (arr: any) => {
     setnameDistrict(arr);
   };
-  const setIdWard = (arr:any) => {
+  const setIdWard = (arr: any) => {
     setidWard(arr);
   };
-  const setNameWard = (arr:any) => {
+  const setNameWard = (arr: any) => {
     setnameWard(arr);
   };
 
@@ -202,7 +202,7 @@ const AddAdress = () => {
               placeholder="Nhập tỉnh thành phố"
               className="w-full h-10 outline-none border-none py-0 px-2"
               readOnly
-                // @ts-ignore
+              // @ts-ignore
               onClick={() => refProvince.current?.setShowModalProvince(true)}
             />
             <div className="w-full h-[1px] bg-[#828282] mt-1" />
@@ -260,7 +260,7 @@ const AddAdress = () => {
       </Page>
       <div className="absolute bottom-0 pb-3 pt-5 border-t borer-t-[#99E7FF] flex flex-col items-center justify-center w-full bg-white">
         <div
-          className="bg-[#01b2ff] w-[60%] flex justify-center items-center py-2 rounded-full"
+          className="bg-main w-[60%] flex justify-center items-center py-2 rounded-full"
           onClick={onConfirm}
         >
           <p className="font-['Nunito'] font-bold text-white text-center">

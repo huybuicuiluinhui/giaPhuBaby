@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Box, Page } from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Images from "../../static";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -124,7 +124,7 @@ const AskDoctor = () => {
         const res = await askDoctorApi.getAllQues(page);
         if (res.status) {
           // @ts-ignore
-          const newData = res.data.data.data.map((item:any) => {
+          const newData = res.data.data.data.map((item: any) => {
             return {
               ...item,
               active: false,
@@ -150,7 +150,7 @@ const AskDoctor = () => {
   }, []);
   return (
     <div className="h-full w-full p-0 m-0">
-      <div className="bg-[#01B2FF] h-[120px] w-full">
+      <div className="bg-main h-[120px] w-full">
         <div className="flex relative">
           <img
             src={Images.brick}
@@ -184,7 +184,7 @@ const AskDoctor = () => {
           </div>
           <div
             className="flex-1 flex flex-col items-center justify-center pr-16"
-              // @ts-ignore
+            // @ts-ignore
             onClick={() => refListBaby.current?.setShow(true)}
           >
             <div className="flex items-center">
@@ -202,8 +202,10 @@ const AskDoctor = () => {
               </svg>
             </div>
             <span className="flex text-white text-center font-sm text-xs">
-              { // @ts-ignore
-                showAgeByMonth(selectedBaby?.realAge) || "0 tuổi"}
+              {
+                // @ts-ignore
+                showAgeByMonth(selectedBaby?.realAge) || "0 tuổi"
+              }
             </span>
           </div>
         </div>

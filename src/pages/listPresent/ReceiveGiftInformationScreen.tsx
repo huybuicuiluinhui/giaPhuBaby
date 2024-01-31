@@ -391,7 +391,7 @@ const ReceiveGiftInformationScreen = () => {
           />
           {/* TỈnh */}
           <div className="mt-2">
-            <span className="text-[15px] text-[#01B2FF] font-normal ">
+            <span className="text-[15px] text-main font-normal ">
               Chọn Tỉnh/Thành phố
             </span>
             <Picker
@@ -422,7 +422,7 @@ const ReceiveGiftInformationScreen = () => {
           {/* HUyện */}
           {!!idProvince ? (
             <div className="mt-2">
-              <span className="text-[15px] text-[#01B2FF] font-normal ">
+              <span className="text-[15px] text-main font-normal ">
                 Chọn Quận/Huyện
               </span>
               <Picker
@@ -431,7 +431,6 @@ const ReceiveGiftInformationScreen = () => {
                 disabled={false}
                 onChange={(data) => {
                   if (!!data && !!idProvince) {
-
                     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                     [(onSetNameDistrict(data), handleDistricIDChange(data))];
                   } else {
@@ -454,7 +453,7 @@ const ReceiveGiftInformationScreen = () => {
             </div>
           ) : (
             <div className="mt-2">
-              <span className="text-[15px] text-[#01B2FF] font-normal ">
+              <span className="text-[15px] text-main font-normal ">
                 Chọn Quận/Huyện
               </span>
               <div className="w-full bg-[#0000001a] rounded-[10px]">
@@ -468,7 +467,7 @@ const ReceiveGiftInformationScreen = () => {
           {/* Xã */}
           {!!idDistrict ? (
             <div className="mt-2">
-              <span className="text-[15px] text-[#01B2FF] font-normal ">
+              <span className="text-[15px] text-main font-normal ">
                 Chọn Phường/Xã
               </span>
               <Picker
@@ -498,7 +497,7 @@ const ReceiveGiftInformationScreen = () => {
             </div>
           ) : (
             <div className="mt-2">
-              <span className="text-[15px] text-[#01B2FF] font-normal ">
+              <span className="text-[15px] text-main font-normal ">
                 Chọn Phường/Xã
               </span>
               <div className="w-full bg-[#0000001a] rounded-[10px]">
@@ -525,7 +524,7 @@ const ReceiveGiftInformationScreen = () => {
         </div>
         {!isLoadingOuttech ? (
           <button
-            className=" bg-[#01B2FF] flex flex-col  justify-center items-center  absolute bottom-10 left-1/2 -translate-x-1/2 w-[70%] py-2 rounded-3xl"
+            className=" bg-main flex flex-col  justify-center items-center  absolute bottom-10 left-1/2 -translate-x-1/2 w-[70%] py-2 rounded-3xl"
             onClick={() => {
               onShowModalComfimGift();
             }}

@@ -36,7 +36,7 @@ const Comfirm = () => {
             dụng Dr.Baby của LineaBon D3K2.
           </span>
           <button
-            className="bg-[#01b2FF]  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
+            className="bg-main  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
             // onClick={() => followOAFuc()}
           >
             Tiếp tục

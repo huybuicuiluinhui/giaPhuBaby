@@ -104,7 +104,7 @@ const ListAddress = () => {
                     {item?.full_address}
                   </p>
                   <div
-                    className="text-sm font-['Nunito'] px-3 text-[#01b2ff]"
+                    className="text-sm font-['Nunito'] px-3 text-main"
                     onClick={() =>
                       navigate(path.addAdress, {
                         state: {
@@ -146,7 +146,7 @@ const ListAddress = () => {
                     </div>
                   ) : (
                     <div
-                      className="bg-[#01b2ff] flex items-center justify-center py-1 px-3 rounded-lg"
+                      className="bg-main flex items-center justify-center py-1 px-3 rounded-lg"
                       onClick={() => handleSetDefault(item)}
                     >
                       <p className="text-xs font-['Nunito'] text-white ">
@@ -162,7 +162,7 @@ const ListAddress = () => {
       </Page>
       <div className="absolute bottom-0 pb-3 pt-5 border-t borer-t-[#99E7FF] flex flex-col items-center justify-center w-full bg-white">
         <div
-          className="bg-[#01b2ff] w-[60%] flex justify-center items-center py-2 rounded-full"
+          className="bg-main w-[60%] flex justify-center items-center py-2 rounded-full"
           onClick={() =>
             navigate(path.addAdress, {
               state: {

@@ -26,7 +26,7 @@ const ItemProduct = ({ img, title, use, price, sold, unit }) => {
             Đã bán {sold}
           </p>
         </div>
-        <div className="w-5 h-5 bg-[#01B2FF] rounded-full flex justify-center items-center self-end mb-2">
+        <div className="w-5 h-5 bg-main rounded-full flex justify-center items-center self-end mb-2">
           <span className="text-white font-semibold text-2xl">+</span>
         </div>
       </div>
@@ -179,7 +179,7 @@ const DetailHandBook = () => {
             Sản phẩm theo vấn đề
           </span>
         </div>
-        <div className="h-[1px] w-full bg-[#01B2FF] mt-1"></div>
+        <div className="h-[1px] w-full bg-main mt-1"></div>
         <div className="px-5">
           {!!dataProduct &&
             !!dataProduct.length &&
@@ -204,7 +204,7 @@ const DetailHandBook = () => {
               className="w-full h-[30px] bg-[#efefef] rounded-md mt-4 flex items-center justify-center"
               onClick={loadmore}
             >
-              <span className="text-[15px] text-[#01B2FF] font-semibold">
+              <span className="text-[15px] text-main font-semibold">
                 Xem thêm
               </span>
             </div>

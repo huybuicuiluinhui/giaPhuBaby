@@ -64,18 +64,18 @@ export default function ItemBigBuyAgain({ item }) {
           <div />
         )}
       </div>
-      <div className="bg-[#01b2ff] flex flex-col justify-start mt-1 pl-4 pr-5 rounded-r-full w-2/3 py-1 ml-[-8px] shadow-lg">
+      <div className="bg-main flex flex-col justify-start mt-1 pl-4 pr-5 rounded-r-full w-2/3 py-1 ml-[-8px] shadow-lg">
         <div className="whitespace-nowrap text-xs font-['Nunito'] font-semibold text-white ">
           {item?.order_item?.length} sản phẩm
         </div>
       </div>
-      <div className="border-solid w-24  border-[#01b2ff] mx-auto mt-4 my-2 bg-[#ddf4ff] flex flex-col justify-start h-6 items-center py-1 border rounded-[199px]">
+      <div className="border-solid w-24  border-main mx-auto mt-4 my-2 bg-[#ddf4ff] flex flex-col justify-start h-6 items-center py-1 border rounded-[199px]">
         <div
           onClick={(event) => {
             event.stopPropagation();
             buyAgain();
           }}
-          className="whitespace-nowrap text-xs font-['Nunito'] font-semibold leading-[12px] text-[#01b2ff] w-1/2"
+          className="whitespace-nowrap text-xs font-['Nunito'] font-semibold leading-[12px] text-main w-1/2"
         >
           Mua lại
         </div>
