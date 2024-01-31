@@ -1,7 +1,7 @@
 import React from "react";
 import Images from "../static";
 import { API_URL_IMAGE } from "../constants/utils";
-export default function ItemProductSale(props:any) {
+export default function ItemProductSale(props: any) {
   const { item } = props;
 
   return (
@@ -23,14 +23,14 @@ export default function ItemProductSale(props:any) {
           <p className="text-xs font-['Nunito'] font-bold w-full my-1">
             {/* {formatDecimalNumber(item.money)}đ/{item?.unit} */}
           </p>
-          <p className="text-xs font-['Nunito'] font-bold text-[#828282] w-full">
+          <p className="text-xs font-['Nunito'] font-bold text-[#828282] ">
             {/* Đã bán {formatDecimalNumber(item?.quantity_sold)} */}
           </p>
         </div>
         <div className="flex flex-col justify-end px-2">
           <img
             src={Images.iconPlus}
-            className="w-5 h-5 object-contain items-end"
+            className="w-5 h-5 object-contain   bg-main rounded-[100%] p-1"
           />
         </div>
       </div>

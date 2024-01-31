@@ -212,7 +212,7 @@ const ModalAddProduct = React.forwardRef((props: IProps, ref) => {
               <p className="text-[#333333] text-center text-sm">{quantity}</p>
             </div>
             <div className="px-2" onClick={() => handleQuantity(1)}>
-              <img src={Images.iconPlus} className="w-6 h-6 object-contain" />
+              <img src={Images.iconPlus2} className="w-6 h-6 object-contain" />
             </div>
           </div>
         </div>

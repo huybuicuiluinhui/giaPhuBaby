@@ -46,7 +46,7 @@ export const TitleHome = ({
     <div className="flex items-center justify-between title-home pl-2 rounded-t-xl">
       <div className="flex items-center flex-1 h-9">
         <img src={icon} className="w-6 h-6 object-contain" />
-        <span className="text-[#3C73BB] font-medium text-[15px] ml-1 flex-1">
+        <span className="text-[#333333] font-medium text-[15px] ml-1 flex-1">
           {title}
         </span>
       </div>
@@ -55,7 +55,7 @@ export const TitleHome = ({
           className="pr-2 pl-5 h-9 flex items-center justify-center"
           onClick={onClick}
         >
-          <span className="text-[#626262] text-xs font-normal">
+          <span className="text-[#333333] text-xs font-normal">
             {titleMore} {">"}
           </span>
         </div>
@@ -70,7 +70,7 @@ export const BtnAccessHome = ({ onClick }) => {
       onClick={onClick}
       className="bg-[#efefef] flex flex-col items-center w-full justify-center py-2 rounded-lg mt-2"
     >
-      <div className="text-sm font-['Nunito'] font-bold text-center text-[#3b72bb] ]">
+      <div className="text-sm font-['Nunito'] font-bold text-center text-main">
         Truy cập
       </div>
     </div>
@@ -369,7 +369,7 @@ const Home = () => {
         className="flex flex-col items-center justify-center info-bae p-2 mb-[22px]"
         onClick={handleClick}
       >
-        <p className="text-[9px] font-bold text-[#157cb6]">
+        <p className="text-[9px] font-bold text-main">
           {id === 1
             ? "Vận động thô"
             : id === 2
@@ -401,7 +401,7 @@ const Home = () => {
         >
           {total !== 0 ? `${roundedNumber((done / total) * 100)}%` : "0%"}
         </p>
-        <p className="text-center text-[8px] font-semibold  text-[#157cb6]">
+        <p className="text-center text-[8px] font-semibold  text-main">
           {"( "}
           {done} / {total}&nbsp;
           {height && "cm "}
@@ -475,7 +475,7 @@ const Home = () => {
                 })}
               </Swiper>
             )}
-          <div className="py-2 absolute bottom-[-15%] left-[50%] justify-center -translate-x-1/2 z-10 w-[85%] px-8 mx-auto shadow-[0px_5px_10px_0px_rgba(0,_0,_0,_0.05)] bg-[#157cb6] flex rounded-md">
+          <div className="py-2 absolute bottom-[-15%] left-[50%] justify-center -translate-x-1/2 z-10 w-[85%] px-8 mx-auto shadow-[0px_5px_10px_0px_rgba(0,_0,_0,_0.05)] bg-main flex rounded-md">
             <div>
               <span className="text-sm text-white">Tổng điểm tích</span>
               <div className="flex items-center justify-center">
@@ -543,7 +543,7 @@ const Home = () => {
         </div>
         <div className="flex justify-between items-center px-3 pt-3">
           <img src={Images.boxShapeBrownBlack} className="w-[35px] h-1" />
-          <span className="paytoneOne text-center text-[15px] font-extrabold text-[#3C73BB] w-60 line-clamp-1">
+          <span className="paytoneOne text-center text-[15px] font-extrabold text-main w-60 line-clamp-1">
             Hồ sơ sức khoẻ : {selectedBaby?.name}
           </span>
           <img
@@ -850,10 +850,10 @@ const Home = () => {
                 </div>
                 {page < lastPage ? (
                   <div
-                    className="bg-[#76d4fe] flex flex-col items-center w-full justify-center py-2 rounded-lg mt-4"
+                    className="bg-main flex flex-col items-center w-full justify-center py-2 rounded-lg mt-4"
                     onClick={() => [setPage(page + 1)]}
                   >
-                    <div className="text-sm font-['Nunito'] font-bold text-center text-[#3b72bb] ">
+                    <div className="text-sm font-['Nunito'] font-bold text-center text-white ">
                       Xem thêm
                     </div>
                   </div>
@@ -862,12 +862,12 @@ const Home = () => {
                 )}
                 <div className="w-full flex items-center justify-center my-2">
                   <button
-                    className="w-full  bg-[#76D4FE] rounded-[10px] py-2 mx-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"
+                    className="w-full  bg-main rounded-[10px] py-2 mx-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"
                     onClick={() => {
                       setModal2(true);
                     }}
                   >
-                    <span className="text-sm font-['Nunito'] font-bold text-center text-[#3b72bb]">
+                    <span className="text-sm font-['Nunito'] font-bold text-center text-white">
                       Tìm kiếm vấn đề thường gặp của bé{" "}
                     </span>
                   </button>
@@ -890,10 +890,10 @@ const Home = () => {
               />
               <ListHealthHome />
               <div
-                className="bg-[#76d4fe] flex flex-col items-center w-full justify-center py-2 rounded-lg mt-4"
+                className="bg-main flex flex-col items-center w-full justify-center py-2 rounded-lg mt-4"
                 onClick={() => navigate(path.profile)}
               >
-                <div className="text-sm font-['Nunito'] font-bold text-center text-[#3b72bb] ]">
+                <div className="text-sm font-['Nunito'] font-bold text-center text-white">
                   Truy cập
                 </div>
               </div>
@@ -934,12 +934,12 @@ const Home = () => {
             </div>
             <div className="w-full flex items-center justify-center my-2">
               <button
-                className="w-[95%] bg-[#76D4FE] rounded-[10px] py-2 mx-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-2"
+                className="w-[95%] bg-main rounded-[10px] py-2 mx-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-2"
                 onClick={() => {
                   setModal(true);
                 }}
               >
-                <span className="text-sm font-['Nunito'] font-bold text-center text-[#3b72bb]">
+                <span className="text-sm font-['Nunito'] font-bold text-center text-white">
                   Tìm kiếm sản phẩm theo các vấn đề
                 </span>
               </button>
@@ -1005,13 +1005,13 @@ const Home = () => {
               );
             })}
           {/* cộng đồng  */}
-          <div className="bg-white rouded-xl my-4 overflow-hidden">
+          {/* <div className="bg-white rouded-xl my-4 overflow-hidden">
             <div className="flex items-center pl-2 rounded-t-xl">
               <img
                 className="w-4 h-4 object-contain"
                 src={Images.iconPenHome}
               />
-              <p className="text-sm font-['Paytone One'] px-2 font-bold flex-1 text-[#3b72bb] w-full">
+              <p className="text-sm font-['Paytone One'] px-2 font-bold flex-1 text-white w-full">
                 Cộng đồng
               </p>
               <div className=" py-2 pl-4 pr-2">
@@ -1032,7 +1032,7 @@ const Home = () => {
                   </div>
                 );
               })}
-          </div>
+          </div> */}
         </div>
         <div className="h-36"></div>
         <ShowListBaby ref={refListBaby} />

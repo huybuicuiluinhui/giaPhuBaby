@@ -108,7 +108,7 @@ import bgTuLap from "./icon/bgTuLap.png";
 import bgCamXuc from "./icon/bgCamXuc.png";
 import bannerFlashSale from "./icon/bannerFlashSale.jpg";
 import logoLineabon from "./icon/logoLineabon.png";
- import iconwidth from "./icon/iconVdTinh.png";
+import iconwidth from "./icon/iconVdTinh.png";
 import icontiny from "./icon/iconVdTinh.png";
 import iconIq from "./icon/iconIQ.png";
 import iconEq from "./icon/iconEq.png";
@@ -119,9 +119,11 @@ import iconSleepBaby from "./icon/iconSleepBaby.png";
 import iconGiacquan from "./icon/iconGiacquan.png";
 import iconTulap from "./icon/iconTulap.png";
 import bannerProblem from "./icon/bannerProblem.jpg";
+import iconPlus2 from "./icon/iconPlus2.png";
 import iconDropDown from "./icon/iconDropDown.png";
 const Images = {
   iconHome,
+  iconPlus2,
   iconHomeActive,
   iconShop,
   iconShopActive,

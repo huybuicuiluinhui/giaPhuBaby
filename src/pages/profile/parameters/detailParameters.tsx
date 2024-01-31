@@ -102,7 +102,7 @@ const DetailParameters = ({
             {checkIconByCatePara(idCategory)?.bigIcon}
             <div className="h-[35px] flex items-center justify-center ml-1">
               {choose && (
-                <span className="text-[#157CB6] mt-2 text-center text-xl font-normal">
+                <span className="text-main mt-2 text-center text-xl font-normal">
                   {/*// @ts-ignore*/}
                   {choose.done}/{choose.total}
                 </span>

@@ -44,7 +44,7 @@ export default function ItemProductHome(props: IProps) {
         <p className="text-xs font-['Nunito'] font-bold w-full">
           {formatDecimalNumber(item.money)}đ/{item?.unit}
         </p>
-        <p className="text-xs font-['Nunito'] font-bold text-[#828282] w-full">
+        <p className="text-xs font-['Nunito'] font-bold text-[#828282] ">
           Đã bán {formatDecimalNumber(item?.quantity_sold)}
         </p>
       </div>
@@ -54,7 +54,7 @@ export default function ItemProductHome(props: IProps) {
       >
         <img
           src={Images.iconPlus}
-          className="w-5 h-5 object-contain items-end"
+          className="w-5 h-5 object-contain   bg-main rounded-[100%] p-1"
         />
       </div>
     </div>

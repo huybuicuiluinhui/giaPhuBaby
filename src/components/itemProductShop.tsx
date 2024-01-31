@@ -27,7 +27,7 @@ export default function ItemProductShop(props: IProps) {
         }
         className="w-[90%] h-28 object-cover rounded-[10px]"
       />
-      <div className="flex flex-1 flex-col justify-between px-2 line-clamp-2 min-h-[104px]">
+      <div className=" w-full flex flex-1 flex-col justify-between px-2 line-clamp-2 min-h-[104px]">
         <p className="text-xs font-['Nunito'] font-bold w-full line-clamp-1 my-1">
           {item?.name}
         </p>
@@ -38,16 +38,16 @@ export default function ItemProductShop(props: IProps) {
           {formatDecimalNumber(item.money)}đ/{item?.unit}
         </p>
         <div className="flex justify-between items-center">
-          <p className="text-xs font-['Nunito'] font-bold text-[#828282] w-full">
+          <p className="text-xs font-['Nunito'] font-bold text-[#828282] ">
             Đã bán {formatDecimalNumber(item?.quantity_sold)}
           </p>
           <div
-            className="flex flex-col justify-end px-2"
+            className="flex flex-col justify-end "
             onClick={props.onClickPlus}
           >
             <img
               src={Images.iconPlus}
-              className="w-5 h-5 object-contain items-end"
+              className="w-5 h-5 object-contain   bg-main rounded-[100%] p-1"
             />
           </div>
         </div>

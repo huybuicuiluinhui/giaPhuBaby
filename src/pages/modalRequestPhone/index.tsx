@@ -54,20 +54,17 @@ const ModalRequestPhone = () => {
     if (!phoneInput) {
       return;
     }
-
     if (/^\d{10}$/.test(phoneInput)) {
       try {
         setLoading(true);
-
-        const phone = phoneInput;
-        const body = { phone: phone };
+        const body = { phone: phoneInput };
         const res = await authApi.login(body);
         if (res.data.code === 200) {
           getProfile();
-          setPhoneTemp(phone);
-          setPhoneUser(phone);
-          setIsAuthenticated(true);
+          console.log(phoneInput);
+          setPhoneTemp(phoneInput);
           setPhoneUser(phoneInput);
+          setIsAuthenticated(true);
           localStorage.setItem("phoneUser", phoneInput);
         } else {
           alert("Thử lại sau");
@@ -90,8 +87,8 @@ const ModalRequestPhone = () => {
   if (isAuthenticated && !!phoneTemp && !!listBaby && !!listBaby.length) {
     return <></>;
   }
-
-  if (isAuthenticated && !!phoneTemp && listBaby && listBaby.length === 0) {
+  console.log("phoneTemp", phoneTemp);
+  if (!!phoneTemp && listBaby && listBaby.length === 0) {
     return (
       <Suspense>
         <AddBaby />

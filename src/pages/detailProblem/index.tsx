@@ -196,7 +196,7 @@ const DetailProblem = () => {
         )}
         {/* hỏi đáp */}
         <div className="mt-3 h-auto min-h-[485px] shadow-[0px_4px_4px_0px_rgba(194,_194,_194,_0.25)]">
-          <div className="flex items-center justify-between rounded-t-xl px-3 pt-2 pb-5 bg-gradient-to-b from-[#3FC4FE] to-transparent">
+          <div className="flex items-center justify-between rounded-t-xl px-3 pt-2 pb-5 bg-gradient-to-b from-main to-transparent">
             <div className="flex items-center">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
@@ -204,7 +204,7 @@ const DetailProblem = () => {
                   fill="#F26091"
                 />
               </svg>
-              <span className="text-[15px] text-[#3C73BB] paytoneOne">
+              <span className="text-[15px] text-textBold paytoneOne">
                 Hỏi - Đáp
               </span>
             </div>

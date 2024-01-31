@@ -55,7 +55,7 @@ const DetailPostProblem = () => {
           {dataProduct.type === 2 && (
             <div className="flex flex-col items-center justify-center">
               <video
-                  // @ts-ignore
+                // @ts-ignore
                 src={`${API_URL_IMAGE}${dataProduct.src}`}
                 className="w-full h-auto rounded-lg"
                 autoPlay={true}
@@ -85,7 +85,7 @@ const DetailPostProblem = () => {
           {/*// @ts-ignore*/}
           {dataProduct.type === 1 && (
             <img
-                // @ts-ignore
+              // @ts-ignore
               src={`${API_URL_IMAGE}${dataProduct.image}`}
               className="w-full h-auto rounded-xl object-cover"
             />
@@ -98,7 +98,7 @@ const DetailPostProblem = () => {
           </p>
           <p
             className="text-[13px] text-[#828282] leading-[18px] pt-2"
-              // @ts-ignore
+            // @ts-ignore
             dangerouslySetInnerHTML={{ __html: dataProduct.content }}
           ></p>
         </div>

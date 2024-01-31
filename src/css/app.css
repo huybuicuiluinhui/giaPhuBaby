@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Nunito:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Nunito:wght@400;500&display=swap");
 
 .page {
   padding: 0;
@@ -27,18 +27,17 @@
   overflow: auto !important;
 }
 
-.btn-click{
+.btn-click {
   display: flex;
   justify-content: center;
 }
-.btn-login{
-
+.btn-login {
 }
-.form-login{
+.form-login {
   transform: translateY(50%);
 }
-.zaui-box .pt-14{
-  padding-top: 1rem ;
+.zaui-box .pt-14 {
+  padding-top: 1rem;
 }
 div::-webkit-scrollbar {
   display: none;

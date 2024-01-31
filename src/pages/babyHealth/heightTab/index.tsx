@@ -193,7 +193,7 @@ const HeightTab = ({ selectedBaby, showModalHeight, setDataParams }) => {
       (_, monthIndex) => {
         const month = monthIndex + startMonth;
         const matchedData = dataChartForAge?.find(
-            // @ts-ignore
+          // @ts-ignore
           (item) => item.month === month
         );
         return {
@@ -421,6 +421,7 @@ const HeightTab = ({ selectedBaby, showModalHeight, setDataParams }) => {
       <Modal
         modalStyle={{
           color: "#4E78DB",
+          top: "12%",
         }}
         modalClassName="modal-parameters"
         visible={dialogVisible}
@@ -432,7 +433,7 @@ const HeightTab = ({ selectedBaby, showModalHeight, setDataParams }) => {
         <Description
           // disabled={false}
           value={heightUpdate}
-            // @ts-ignore
+          // @ts-ignore
           onChange={(e) => setHeightUpdate(e.target.value)}
           label={"Chiều cao"}
           color={"#FFB199"}
@@ -507,14 +508,11 @@ const HeightTab = ({ selectedBaby, showModalHeight, setDataParams }) => {
           }
         />
         {/*@ts-ignore*/}
-        < // @ts-ignore
-          Description
-          // disabled={true}
+        <Description
           value={monthUpdate === 0 ? "0" : monthUpdate}
           label={"Tháng tuổi"}
           color={"#4E78DB"}
-          onChange={ // @ts-ignore
-            (e) => handleCheckAge(e)}
+          onChange={(e: any) => handleCheckAge(e)}
           unit={"tháng"}
         />
         <div

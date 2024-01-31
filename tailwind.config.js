@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         blue: "#01B2FF",
         main: "#01B2FF",
+        textBold: "#df4f5b",
       },
     },
   },
