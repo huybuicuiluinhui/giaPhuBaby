@@ -109,55 +109,58 @@ const ModalRequestPhone = () => {
             LINEABON
           </p>
           <p className=" font-semibold text-base leading-6 mt-2">
-            Chúng tôi cần số điện thoại của bạn để:
-          </p>
-          <div className="flex items-center mt-1">
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
-              <path
-                d="M7.01855 4L13.0186 10L7.01855 16"
-                stroke="#01B2FF"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <p className=" font-medium text-base leading-6 ">
-              Định danh tài khoản
-            </p>
-          </div>
-          <div className="flex items-center mt-1">
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
-              <path
-                d="M7.01855 4L13.0186 10L7.01855 16"
-                stroke="#01B2FF"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <p className=" font-medium text-base leading-6 ">
-              Mua bán sản phẩm
-            </p>
-          </div>
-          <div className="flex items-center mt-1">
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
-              <path
-                d="M7.01855 4L13.0186 10L7.01855 16"
-                stroke="#01B2FF"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <p className=" font-medium text-base leading-6 ">
-              Tra cứu đơn hàng
-            </p>
-          </div>
+            Chào mừng bạn đến với chương trình “Trở thành Bác sĩ của con cùng LineaBon”.
+            Với bảo trợ chuyên môn từ Bác sĩ Chuyên khoa II Hoàng Quốc Tưởng, Dr.Baby sẽ trở thành một trợ lý đắc lực, giúp bạn nuôi con khoa học và đơn giản.
+            Hãy nhập số điện thoại để bắt đầu ngay bây giờ!
 
-          <p className=" font-medium text-base  leading-6 mt-2">
-            Vui lòng đồng ý chia sẻ số điện thoại với LineaBon để liên kết tài
-            khoản.
           </p>
+          {/*<div className="flex items-center mt-1">*/}
+          {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">*/}
+          {/*    <path*/}
+          {/*      d="M7.01855 4L13.0186 10L7.01855 16"*/}
+          {/*      stroke="#01B2FF"*/}
+          {/*      strokeWidth="2"*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*    />*/}
+          {/*  </svg>*/}
+          {/*  <p className=" font-medium text-base leading-6 ">*/}
+          {/*    Định danh tài khoản*/}
+          {/*  </p>*/}
+          {/*</div>*/}
+          {/*<div className="flex items-center mt-1">*/}
+          {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">*/}
+          {/*    <path*/}
+          {/*      d="M7.01855 4L13.0186 10L7.01855 16"*/}
+          {/*      stroke="#01B2FF"*/}
+          {/*      strokeWidth="2"*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*    />*/}
+          {/*  </svg>*/}
+          {/*  <p className=" font-medium text-base leading-6 ">*/}
+          {/*    Mua bán sản phẩm*/}
+          {/*  </p>*/}
+          {/*</div>*/}
+          {/*<div className="flex items-center mt-1">*/}
+          {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">*/}
+          {/*    <path*/}
+          {/*      d="M7.01855 4L13.0186 10L7.01855 16"*/}
+          {/*      stroke="#01B2FF"*/}
+          {/*      strokeWidth="2"*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*    />*/}
+          {/*  </svg>*/}
+          {/*  <p className=" font-medium text-base leading-6 ">*/}
+          {/*    Tra cứu đơn hàng*/}
+          {/*  </p>*/}
+          {/*</div>*/}
+
+          {/*<p className=" font-medium text-base  leading-6 mt-2">*/}
+          {/*  Vui lòng đồng ý chia sẻ số điện thoại với LineaBon để liên kết tài*/}
+          {/*  khoản.*/}
+          {/*</p>*/}
           <p className="font-medium text-base text-center leading-6 mt-2"></p>
           {/*<div*/}
           {/*    className="w-[100%] py-2 flex items-center justify-center border-2 border-main bg-blue mt-4 mb-3 rounded-md"*/}
