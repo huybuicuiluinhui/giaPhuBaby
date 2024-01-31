@@ -24,7 +24,7 @@ export default function ListCategory() {
           <div className="spin-loading"></div>
         </div>
       )}
-      <div className="pt-14 pb-4 bg-[#01B2FF]">
+      <div className="pt-14 pb-4 bg-main">
         <div className="flex items-center ">
           <div
             className="w-9 h-9 bg-white ml-2 rounded-full flex items-center justify-center"

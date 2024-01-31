@@ -99,7 +99,7 @@ const DetailLessonHome = () => {
     statusParams: "completed" | "easily" | "hard"
   ) => {
     const res = await homeApi.updateStatusLesson(
-        // @ts-ignore
+      // @ts-ignore
       dataLesson?.data.data.id,
       selectedBaby?.id,
       statusParams,
@@ -151,7 +151,7 @@ const DetailLessonHome = () => {
   const handleLike = async () => {
     try {
       const res = await homeApi.likeLesson(
-          // @ts-ignore
+        // @ts-ignore
         dataLesson?.data.data.id,
         selectedBaby?.id,
         isLiked
@@ -229,7 +229,7 @@ const DetailLessonHome = () => {
     <div className="w-full h-full bg-white relative">
       {/* header  */}
       <div
-        className="bg-[#01B2FF] pt-14 pb-4"
+        className="bg-main pt-14 pb-4"
         style={{
           backgroundImage: `url(${Images.bgHeader})`,
           backgroundRepeat: "no-repeat",
@@ -367,14 +367,14 @@ const DetailLessonHome = () => {
           {currentIndex === 0 ? (
             <LessonDetailInfo
               info={dataLesson?.data.data}
-                // @ts-ignore
+              // @ts-ignore
               showModal={() => refModalToy.current?.setShowModalToy(true)}
             />
           ) : (
             <LessonToy
-                // @ts-ignore
+              // @ts-ignore
               showModal={() => refModalToy.current?.setShowModalToy(true)}
-                // @ts-ignore
+              // @ts-ignore
               arrToys={dataLesson?.data.data.toys}
             />
           )}

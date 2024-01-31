@@ -14,11 +14,11 @@ import path from "../../../constants/path";
 // @ts-ignore
 
 const DetailParameters = ({
-                            // @ts-ignore
+  // @ts-ignore
   data,
-                            // @ts-ignore
+  // @ts-ignore
   isOpenVd,
-                            // @ts-ignore
+  // @ts-ignore
   handleSetIdListVideo, // @ts-ignore
   updateMileston, // @ts-ignore
   checkMilesIsDone, // @ts-ignore
@@ -96,14 +96,14 @@ const DetailParameters = ({
 
   return (
     <Page className="w-full h-full bg-white pb-52 px-2" hideScrollbar>
-      <div className="bg-[#01B2FF] w-full rounded-[30px] flex items-center my-2 py-2 px-2">
-        <div className="bg-gradient-to-b w-[80%] from-[#AEE9FC] to-[#01B2FF] mx-4 px-4 rounded-[25px] py-2">
+      <div className="bg-main w-full rounded-[30px] flex items-center my-2 py-2 px-2">
+        <div className="bg-gradient-to-b w-[80%] from-[#AEE9FC] to-main mx-4 px-4 rounded-[25px] py-2">
           <div className="flex items-center justify-center mb-1">
             {checkIconByCatePara(idCategory)?.bigIcon}
             <div className="h-[35px] flex items-center justify-center ml-1">
               {choose && (
                 <span className="text-[#157CB6] mt-2 text-center text-xl font-normal">
-                   {/*// @ts-ignore*/}
+                  {/*// @ts-ignore*/}
                   {choose.done}/{choose.total}
                 </span>
               )}
@@ -123,7 +123,7 @@ const DetailParameters = ({
         <List>
           {!!data &&
             !!data.length &&
-              // @ts-ignore
+            // @ts-ignore
             data.map((item, index) => {
               return (
                 <div key={index}>
@@ -132,7 +132,7 @@ const DetailParameters = ({
                     return (
                       <div
                         key={index2}
-                        className="w-full border-[#01B2FF] border-solid rounded-xl border-2  mb-4 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] "
+                        className="w-full border-main border-solid rounded-xl border-2  mb-4 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] "
                       >
                         <div className="flex items-center  py-2  px-2  ">
                           <div className="w-4 h-4  ">
@@ -185,7 +185,7 @@ const DetailParameters = ({
                             style={{ paddingLeft: 4, paddingRight: 4 }}
                           >
                             {!!item2?.video &&
-                                // @ts-ignore
+                              // @ts-ignore
                               item2?.video?.map((action, actionIndex) => {
                                 return (
                                   <SwiperSlide
@@ -358,7 +358,7 @@ const DetailParameters = ({
         onClose={() => {
           setPopupVisible(false);
         }}
-          // @ts-ignore
+        // @ts-ignore
         description={dataAction}
         modalClassName="modal-parameters"
       >

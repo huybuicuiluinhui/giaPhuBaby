@@ -81,7 +81,7 @@ export default function UploadPost() {
 
   return (
     <div className="w-full h-full bg-white relative">
-      <div className="pt-14 pb-4 bg-[#01B2FF]">
+      <div className="pt-14 pb-4 bg-main">
         <div className="flex items-center ">
           <div
             className="w-9 h-9 bg-white ml-2 rounded-full flex items-center justify-center"
@@ -154,7 +154,7 @@ export default function UploadPost() {
             <div className="h-[2px] bg-[#EBEBEB]"></div>
             <div
               className="flex items-center pt-3 pb-2"
-                // @ts-ignore
+              // @ts-ignore
               onClick={() => refModal.current?.setShowModal(true)}
             >
               <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
@@ -186,7 +186,7 @@ export default function UploadPost() {
           </div> */}
             {!!img && (
               <div
-                  // @ts-ignore
+                // @ts-ignore
                 onClick={() => setFileImg("")}
                 className="px-2 py-4 rounded bg-[#00000080]"
               >

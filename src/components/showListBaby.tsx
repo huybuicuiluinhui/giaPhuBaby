@@ -34,7 +34,7 @@ const ShowListBaby = React.forwardRef((props, ref) => {
               <div className="flex mb-2" key={item.id}>
                 <div className="flex items-center w-full pl-5 py-1">
                   {selectedBaby?.id === item.id ? (
-                    <div className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-[#01b2FF]">
+                    <div className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-main">
                       <img
                         src={item.image}
                         className="w-10 h-10 rounded-full object-cover"

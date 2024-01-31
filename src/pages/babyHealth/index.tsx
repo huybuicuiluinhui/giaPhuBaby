@@ -14,7 +14,7 @@ const BabyHealth = () => {
   const refScroll = useRef(null);
   const { selectedBaby } = useContext(AppContext);
   const WIDTH_WINDOW = window.innerWidth;
-  const handleTabClick = (index:any) => {
+  const handleTabClick = (index: any) => {
     const tabPosition = WIDTH_WINDOW * index;
     // @ts-ignore
     refScroll.current?.scrollTo({
@@ -24,13 +24,9 @@ const BabyHealth = () => {
     setChoose(index);
   };
 
-
-
-
   useEffect(() => {
-    if (state?.chooseTab){
+    if (state?.chooseTab) {
       state.chooseTab === 0 ? handleTabClick(0) : handleTabClick(1);
-
     }
   }, [state.chooseTab]);
   const tabs = [
@@ -39,11 +35,11 @@ const BabyHealth = () => {
       title:
         dataTab === undefined
           ? null
-            // @ts-ignore
-          : dataTab[dataTab.length- 1]?.height === undefined
+          : // @ts-ignore
+          dataTab[dataTab.length - 1]?.height === undefined
           ? null
-                // @ts-ignore
-          : dataTab[dataTab.length - 1]?.height,
+          : // @ts-ignore
+            dataTab[dataTab.length - 1]?.height,
       unit: "cm",
     },
 
@@ -52,18 +48,18 @@ const BabyHealth = () => {
       title:
         dataTab === undefined
           ? null
-            // @ts-ignore
-          : dataTab[dataTab.length - 1]?.weight === undefined
+          : // @ts-ignore
+          dataTab[dataTab.length - 1]?.weight === undefined
           ? null
-                // @ts-ignore
-          : dataTab[dataTab.length - 1]?.weight,
+          : // @ts-ignore
+            dataTab[dataTab.length - 1]?.weight,
       unit: "kg",
     },
   ];
 
   return (
     <div className="w-screen h-screen bg-white ">
-      <div className=" bg-[#01B2FF] ">
+      <div className=" bg-main ">
         <Header title="Chiều cao - cân nặng" />
         <div className=" flex justify-between items-center  px-[20px] ">
           <div className="flex flex-col justify-center items-center flex-[0.8]">
@@ -161,13 +157,13 @@ const BabyHealth = () => {
             <HeightTab
               selectedBaby={selectedBaby}
               showModalHeight={state.showModalHeight}
-              setDataParams={(value:any) => setDataTab(value)}
+              setDataParams={(value: any) => setDataTab(value)}
             />
           ) : (
             <HeightTab
               selectedBaby={selectedBaby}
               showModalHeight={false}
-              setDataParams={(value:any) => setDataTab(value)}
+              setDataParams={(value: any) => setDataTab(value)}
             />
           )}
         </div>
@@ -178,18 +174,18 @@ const BabyHealth = () => {
           }}
         >
           {state?.showModalWeight ? (
-              // @ts-ignore
+            // @ts-ignore
             <WeightTab
               selectedBaby={selectedBaby}
               showModalWeight={state.showModalWeight}
-              setDataParams={(value:any) => setDataTab(value)}
+              setDataParams={(value: any) => setDataTab(value)}
             />
           ) : (
-              // @ts-ignore
+            // @ts-ignore
             <WeightTab
               selectedBaby={selectedBaby}
               showModalWeight={false}
-              setDataParamsWeight={(value:any) => setDataTab(value)}
+              setDataParamsWeight={(value: any) => setDataTab(value)}
             />
           )}
         </div>

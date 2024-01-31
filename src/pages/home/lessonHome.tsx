@@ -51,13 +51,13 @@ const LessonHome = () => {
         setData(dataLesson);
         setCurrentIndex(
           dataLesson.findIndex(
-              // @ts-ignore
+            // @ts-ignore
             (x) =>
               convertTimeByFormat(x.date, "DD/MM/YYYY") ===
               convertTimeByFormat(Date.now(), "DD/MM/YYYY")
           ) > -1
             ? dataLesson.findIndex(
-                  // @ts-ignore
+                // @ts-ignore
                 (x) =>
                   convertTimeByFormat(x.date, "DD/MM/YYYY") ===
                   convertTimeByFormat(Date.now(), "DD/MM/YYYY")
@@ -247,7 +247,7 @@ const LessonHome = () => {
                 <p className="text-[#3C73BB] text-[15px] font-bold">
                   Phát triển đa giác quan
                 </p>
-                <p className="text-[#01B2FF] text-[14px] font-medium">
+                <p className="text-main text-[14px] font-medium">
                   {" "}
                   : {dateConvert}
                 </p>
@@ -287,7 +287,7 @@ const LessonHome = () => {
             </div>
           )}
         </div>
-        <div className="h-[1px] w-full bg-[#01B2FF] my-2"></div>
+        <div className="h-[1px] w-full bg-main my-2"></div>
         {item.lesson.map((v, i) => {
           let isDisabled = true;
           if (
@@ -316,7 +316,7 @@ const LessonHome = () => {
             <div key={i}>
               {itemDetailLesson(v, item.date, i, isDisabled, status)}
               {i === item.lesson.length - 1 ? null : (
-                <div className="h-[1px] w-full bg-[#01B2FF] mt-1" />
+                <div className="h-[1px] w-full bg-main mt-1" />
               )}
             </div>
           );

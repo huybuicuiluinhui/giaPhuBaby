@@ -17,11 +17,11 @@ const Community = () => {
   const navigate = useNavigate();
   const refListBaby = React.useRef(null);
 
-    // @ts-ignore
+  // @ts-ignore
   const handleTabClick = (index) => {
     setCurrentIndex(index);
     const tabPosition = WIDTH_WINDOW * index;
-      // @ts-ignore
+    // @ts-ignore
     refScroll.current?.scrollTo({
       left: tabPosition,
       behavior: "smooth",
@@ -30,7 +30,7 @@ const Community = () => {
 
   return (
     <div className="flex flex-col w-full h-full bg-[#F7F8FD] relative">
-      <div className="bg-[#01B2FF] pt-14 pb-4">
+      <div className="bg-main pt-14 pb-4">
         {/* header  */}
         <div className="flex items-center px-2">
           <div className="relative px-2">
@@ -46,7 +46,7 @@ const Community = () => {
           </div>
           <div
             className="w-full flex flex-col items-center justify-center pr-12"
-              // @ts-ignore
+            // @ts-ignore
             onClick={() => refListBaby.current?.setShow(true)}
           >
             <div className="flex items-center">
@@ -64,7 +64,7 @@ const Community = () => {
               </svg>
             </div>
             <p className="text-cente text-xs font-['Nunito'] text-white">
-                {/*// @ts-ignore*/}
+              {/*// @ts-ignore*/}
               {showAgeByMonth(selectedBaby?.realAge) || "0 tuổi"}
             </p>
           </div>

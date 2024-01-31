@@ -77,8 +77,6 @@ export const BtnAccessHome = ({ onClick }) => {
   );
 };
 const Home = () => {
-
-
   const navigate = useNavigate();
   const { selectedBaby, phoneUser } = useContext(AppContext);
   const [itemProductChoose, setItemProductChoose] =
@@ -129,7 +127,6 @@ const Home = () => {
     },
   });
 
-
   const { data: dataPointHome } = useQuery({
     queryKey: ["dataPointHome"],
     queryFn: () => {
@@ -144,7 +141,6 @@ const Home = () => {
       alert("có lỗi xảy ra");
     }
   };
-
 
   const getProblemList = async () => {
     if (selectedBaby?.name && page !== 1) {
@@ -205,7 +201,7 @@ const Home = () => {
     }
   };
   const addMilestonWithMonthBaby = async () => {
-    console.log(selectedBaby)
+    console.log(selectedBaby);
     try {
       let formData = new FormData();
       formData.append("id_user_profiles", String(selectedBaby?.id));
@@ -223,8 +219,6 @@ const Home = () => {
     }
   };
 
-
-
   const getHeightAndWeightWHO = async () => {
     try {
       let formData = new FormData();
@@ -240,7 +234,7 @@ const Home = () => {
         alert("có lỗi xảy ra");
       }
     } catch (error) {
-      console.log('lỗi ' +error);
+      console.log("lỗi " + error);
     }
   };
   const getHealthRecord = async () => {
@@ -335,14 +329,14 @@ const Home = () => {
   const handleUpload = () => {
     refInputImage.current?.click();
   };
-// @ts-ignore
+  // @ts-ignore
   const InfoBae = ({
-                     // @ts-ignore
-    id,// @ts-ignore
-    done,// @ts-ignore
+    // @ts-ignore
+    id, // @ts-ignore
+    done, // @ts-ignore
     total,
     height = false,
-    weight = false,// @ts-ignore
+    weight = false, // @ts-ignore
     onClick,
     loadingDisabled = false,
   }) => {
@@ -420,10 +414,10 @@ const Home = () => {
   return (
     <div className="flex flex-col w-full h-full bg-[#F7F8FD] relative">
       {/* header  */}
-      <div className="bg-[#01B2ff] pt-14 pb-4 flex">
+      <div className="bg-main pt-14 pb-4 flex">
         <div
           className="flex items-center px-2"
-            // @ts-ignore
+          // @ts-ignore
           onClick={() => refListBaby.current?.setShow(true)}
         >
           <img
@@ -452,8 +446,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div
-        className="flex-1 w-full pt-0  bg-[#-[#F7F8FD] mt-[-1px] overflow-x-scroll"   >
+      <div className="flex-1 w-full pt-0  bg-[#-[#F7F8FD] mt-[-1px] overflow-x-scroll">
         {/* slide */}
         <div className="px-2 relative mb-8">
           {!!dataBannerHome &&
@@ -600,17 +593,17 @@ const Home = () => {
             />
             <InfoBae
               id={1}
-                // @ts-ignore
+              // @ts-ignore
               done={grossMotor?.done ? `${grossMotor?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={grossMotor?.total ? `${grossMotor?.total}` : 0}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   grossMotor?.total === undefined ||
-                    // @ts-ignore
+                  // @ts-ignore
                   grossMotor?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   grossMotor?.total === null
                 ) {
                   setShowAlert2(true);
@@ -622,17 +615,17 @@ const Home = () => {
             />
             <InfoBae
               id={2}
-                // @ts-ignore
+              // @ts-ignore
               done={fineMotor?.done ? `${fineMotor?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={fineMotor?.total ? `${fineMotor?.total}` : 0}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   fineMotor?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   fineMotor?.total === null ||
-                    // @ts-ignore
+                  // @ts-ignore
                   fineMotor?.total === undefined
                 ) {
                   setShowAlert2(true);
@@ -652,18 +645,18 @@ const Home = () => {
             </div>
             <InfoBae
               id={5}
-                // @ts-ignore
+              // @ts-ignore
               done={independent?.done ? `${independent?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={independent?.total ? `${independent?.total}` : 0}
               // onClick={() => navigate("/parameters", { state: independent })}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   independent?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   independent?.total === null ||
-                    // @ts-ignorev
+                  // @ts-ignorev
                   independent?.total === undefined
                 ) {
                   setShowAlert2(true);
@@ -677,17 +670,17 @@ const Home = () => {
           <div className="">
             <InfoBae
               id={6}
-                // @ts-ignore
+              // @ts-ignore
               done={socialEmotions?.done ? `${socialEmotions?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={socialEmotions?.total ? `${socialEmotions?.total}` : 0}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   socialEmotions?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   socialEmotions?.total === null ||
-                    // @ts-ignore
+                  // @ts-ignore
                   socialEmotions?.total === undefined
                 ) {
                   setShowAlert2(true);
@@ -699,17 +692,17 @@ const Home = () => {
             />
             <InfoBae
               id={4}
-                // @ts-ignore
+              // @ts-ignore
               done={awareness?.done ? `${awareness?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={awareness?.total ? `${awareness?.total}` : 0}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   awareness?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   awareness?.total === null ||
-                    // @ts-ignore
+                  // @ts-ignore
                   awareness?.total === undefined
                 ) {
                   setShowAlert2(true);
@@ -722,17 +715,17 @@ const Home = () => {
 
             <InfoBae
               id={3}
-                // @ts-ignore
+              // @ts-ignore
               done={language?.done ? `${language?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={language?.total ? `${language?.total}` : 0}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   language?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   language?.total === null ||
-                    // @ts-ignore
+                  // @ts-ignore
                   language?.total === undefined
                 ) {
                   setShowAlert2(true);
@@ -744,17 +737,17 @@ const Home = () => {
             />
             <InfoBae
               id={7}
-                // @ts-ignore
+              // @ts-ignore
               done={sense?.done ? `${sense?.done}` : 0}
-                // @ts-ignore
+              // @ts-ignore
               total={sense?.total ? `${sense?.total}` : 0}
               onClick={() => {
                 if (
-                    // @ts-ignore
+                  // @ts-ignore
                   sense?.total === 0 ||
-                    // @ts-ignore
+                  // @ts-ignore
                   sense?.total === null ||
-                    // @ts-ignore
+                  // @ts-ignore
                   sense?.total === undefined
                 ) {
                   setShowAlert2(true);
@@ -767,7 +760,7 @@ const Home = () => {
           </div>
         </div>
         <div className="w-full">
-          <p className="text-[#01B2ff] text-[10px] italic text-center mx-3 ">
+          <p className="text-main text-[10px] italic text-center mx-3 ">
             Các chỉ số trong hồ sơ sức khoẻ được xây dựng theo chương trình đo
             lường phát triển ASQ-3 của ĐH Oregon Hoa Kỳ
           </p>
@@ -818,7 +811,7 @@ const Home = () => {
                 >
                   <div className="w-[50%] float-right h-[130px] flex items-center justify-center mt-[5%] mr-[1%]">
                     <div>
-                      <p className="text-xs font-bold text-[#01b2ff] font-['Nunito'] leading-[5px] text-center  ">
+                      <p className="text-xs font-bold text-main font-['Nunito'] leading-[5px] text-center  ">
                         Giai đoạn
                       </p>
                       <p className="text-base font-bold text-center font-['Nunito'] text-red-300 z-10 ">
@@ -841,7 +834,7 @@ const Home = () => {
                             navigate(path.lisPostWithProblem, { state: item });
                           }}
                         >
-                          <div className="bg-[#01B2ff] rounded-[50%]">
+                          <div className="bg-main rounded-[50%]">
                             <img
                               src={`${API_URL_IMAGE}${item.icon}`}
                               className="w-11 h-11 object-contain rounded-[50%]"
@@ -1081,7 +1074,7 @@ const Home = () => {
                 ứng dụng Dr.Baby của LineaBon D3K2.
               </span>
               <button
-                className="bg-[#01b2FF]  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
+                className="bg-main  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
                 onClick={() => {
                   setShowFollow(false);
                   // followOAFuc();

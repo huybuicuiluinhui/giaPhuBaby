@@ -15,7 +15,7 @@ const ModaNotify = ({ description, setPopupVisible, popupVisible }) => {
     >
       <Box p={2}>
         <button
-          className="w-[90%]  bg-[#01b2ff] rounded-2xl px-2 text-white py-2"
+          className="w-[90%]  bg-main rounded-2xl px-2 text-white py-2"
           onClick={() => {
             setPopupVisible(false);
           }}

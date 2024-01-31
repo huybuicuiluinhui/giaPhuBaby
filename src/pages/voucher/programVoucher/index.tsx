@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Page, Text, useSnackbar } from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Images from "../../../static";
 import Header from "../../../components/header";
@@ -34,7 +34,7 @@ const ProgramVoucher = () => {
       setIsLoading(true);
       const res = await voucherApi.getProgramVocher(page);
       if (res.status) {
-        const newData = res.data.data.data.map((item:any) => {
+        const newData = res.data.data.data.map((item: any) => {
           return {
             ...item,
             active: false,
@@ -64,7 +64,7 @@ const ProgramVoucher = () => {
         setPage(currentPage);
         const res = await voucherApi.getProgramVocher(currentPage);
         if (res.status) {
-          const newData = res.data.data.data.map((item:any) => {
+          const newData = res.data.data.data.map((item: any) => {
             return {
               ...item,
               active: false,
@@ -91,7 +91,7 @@ const ProgramVoucher = () => {
   return (
     <Box className="h-screen p-0 m-0">
       {/* <Header title="Chương trình Voucher" /> */}
-      <div className="bg-[#01B2FF] h-[120px] w-full">
+      <div className="bg-main h-[120px] w-full">
         <div className="flex">
           <img
             src={Images.brick}

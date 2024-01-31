@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Box, Page, Spinner} from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { Box, Page, Spinner } from "zmp-ui";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { AppContext } from "../../../contexts/app.context";
@@ -123,7 +123,7 @@ const Parameters = () => {
   const checkMilesIsDone = (id_milestones) => {
     if (!!dataMilestMonth && dataMilestMonth.length > 0) {
       const obj = dataMilestMonth.find(
-          // @ts-ignore
+        // @ts-ignore
         (data) => data.id_activity_milestones === id_milestones
       );
       if (obj) {
@@ -150,7 +150,7 @@ const Parameters = () => {
   return (
     <div className="w-screen h-screen bg-white">
       <div
-        className="bg-[#01B2FF] pt-14 pb-4"
+        className="bg-main pt-14 pb-4"
         style={{
           backgroundImage: `url(${Images.bgHeader})`,
           backgroundRepeat: "no-repeat",
@@ -172,7 +172,7 @@ const Parameters = () => {
           </div>
           <div
             className="w-full flex flex-col items-center justify-center pr-12"
-              // @ts-ignore
+            // @ts-ignore
             onClick={() => refListBaby.current?.setShow(true)}
           >
             <div className="flex items-center">

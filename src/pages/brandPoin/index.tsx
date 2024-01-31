@@ -40,7 +40,7 @@ const BrandPoin = () => {
       // @ts-ignore
       if (response.status && response.status === 200) {
         setArrPointBrand(
-            // @ts-ignore
+          // @ts-ignore
           response.data.customerListPointModels[0]?.CustomerListPoints
         );
       } else {
@@ -145,11 +145,11 @@ const BrandPoin = () => {
                 />
               }
               value={code}
-                // @ts-ignore
+              // @ts-ignore
               onChange={(text: string) => setCode(text?.target.value)}
             />
             <button
-              className=" bg-[#01B2FF] flex flex-col  justify-center items-center  absolute bottom-10 left-1/2 -translate-x-1/2 w-[70%] py-2 rounded-3xl"
+              className=" bg-main flex flex-col  justify-center items-center  absolute bottom-10 left-1/2 -translate-x-1/2 w-[70%] py-2 rounded-3xl"
               onClick={() => {
                 confirm();
                 setLoadButton(true);
@@ -169,7 +169,7 @@ const BrandPoin = () => {
             {loadButtonModal === false ? (
               <div className="w-full h-full flex justify-center ">
                 <button
-                  className="bg-[#01B2FF] px-3 py-1 mt-2 rounded text-white font-medium"
+                  className="bg-main px-3 py-1 mt-2 rounded text-white font-medium"
                   onClick={() => {
                     navigate(path.brandGift);
                   }}

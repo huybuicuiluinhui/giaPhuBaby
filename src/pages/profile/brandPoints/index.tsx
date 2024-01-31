@@ -53,7 +53,7 @@ const BrandPoin = () => {
             </svg>
           }
         />
-        <button className=" bg-[#01B2FF] flex flex-col  justify-center items-center  absolute bottom-2 left-1/2 -translate-x-1/2 w-[80%] py-2 rounded-3xl">
+        <button className=" bg-main flex flex-col  justify-center items-center  absolute bottom-2 left-1/2 -translate-x-1/2 w-[80%] py-2 rounded-3xl">
           <p className=" text-white text-center"> Tích điểm</p>
         </button>
       </div>

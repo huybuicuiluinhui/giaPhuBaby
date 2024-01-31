@@ -53,6 +53,28 @@ export const listAccessHome = [
     screen: "",
   },
 ];
+export const listIconProfile = [
+  {
+    title: "Đơn hàng",
+    icon: Images.iconOrderHome,
+    screen: path.myOrder,
+  },
+  {
+    title: "Đổi quà thương hiệu",
+    icon: Images.iconPresent,
+    screen: "/brandGift",
+  },
+  {
+    title: "Voucher",
+    icon: Images.iconDiscount,
+    screen: "/voucher",
+  },
+  {
+    title: "Tích điểm thương hiệu",
+    icon: Images.iconAccumulateHome,
+    screen: "/brandPoin",
+  },
+];
 export const listProductAccordingProblemHome = [
   {
     title: "Ăn dặm",

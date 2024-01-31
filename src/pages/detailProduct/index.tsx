@@ -93,7 +93,6 @@ export default function DetailProduct() {
     },
   });
 
-
   const buyCombo = useMutation({
     mutationFn: (id: number) => cartApi.buyCombo(id),
     onSuccess: () => {
@@ -191,7 +190,7 @@ export default function DetailProduct() {
           <p className="text-xs font-['Nunito'] font-bold text-[#828282] ml-2 line-through">
             {formatDecimalNumber(moneyBase)}đ / {dataProduct?.unit}
           </p>
-          <p className="text-base font-['Nunito'] font-bold text-[#01b2ff] ml-2">
+          <p className="text-base font-['Nunito'] font-bold text-main ml-2">
             {formatDecimalNumber(money)}đ / {dataProduct?.unit}
           </p>
           <div className="w-full h-2 bg-[#ebebeb] my-2"></div> {/* line */}
@@ -345,7 +344,7 @@ export default function DetailProduct() {
                     setHeight(showMore ? 150 : "auto");
                   }}
                 >
-                  <p className="text-center text-sm font-['Nunito'] font-bold  text-[#01b2ff] mr-2">
+                  <p className="text-center text-sm font-['Nunito'] font-bold  text-main mr-2">
                     {!showMore ? "Xem thêm" : "Thu gọn"}
                   </p>
                   {showMore ? (
@@ -392,7 +391,7 @@ export default function DetailProduct() {
                 );
               })}
             {/* <div className="bg-[#efefef] flex flex-col w-[98%] items-center justify-center mx-auto py-2 my-4 rounded">
-              <span className="text-sm font-['Nunito'] font-bold  text-[#01b2ff]">
+              <span className="text-sm font-['Nunito'] font-bold  text-main">
                 Xem thêm
               </span>
             </div> */}
@@ -462,7 +461,7 @@ export default function DetailProduct() {
         {/* mua ngay  */}
         <div
           onClick={() => buyNow.mutate()}
-          className="border-solid h-12 px-2 flex-3 border-[#01b2ff] bg-[#01b2ff] border-t border-t-[#dbdbdb] flex justify-center items-center border rounded"
+          className="border-solid h-12 px-2 flex-3 border-main bg-main border-t border-t-[#dbdbdb] flex justify-center items-center border rounded"
         >
           <svg width="26" height="10" viewBox="0 0 26 10" fill="none">
             <path

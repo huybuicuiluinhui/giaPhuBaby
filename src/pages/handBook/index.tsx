@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Input, Page } from "zmp-ui";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Header from "../../components/header";
 import Images from "../../static";
@@ -151,7 +151,7 @@ const HandBook = () => {
         </div>
         {data.length === 0 && (
           <div className="w-full">
-            <p className="text-[#01B2FF] text-base text-center ">
+            <p className="text-main text-base text-center ">
               Không tìm thấy kết quả cần tìm kiếm
             </p>
           </div>
