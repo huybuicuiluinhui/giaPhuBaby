@@ -279,6 +279,7 @@ const DetailLessonHome = () => {
               className="w-full h-auto"
               autoPlay={true}
               ref={videoRef}
+              playsInline
               // onError={() => handleVideoError()}
             />
             {isPausedVideo && (

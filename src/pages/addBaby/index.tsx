@@ -60,6 +60,7 @@ const AddBaby = () => {
     }
   };
 
+
   const onConfirm = async () => {
     if (checkEmpty()) {
 
@@ -85,6 +86,7 @@ const AddBaby = () => {
           setListBaby(res.data.data.baby);
           saveListBabyToLS(res.data.data.baby);
           setSelectedBaby(res.data.data.baby[0]);
+
         } else {
           alert("Tạo thất bại");
         }

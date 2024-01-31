@@ -69,7 +69,6 @@ const LessonHome = () => {
     },
     enabled: Boolean(selectedBaby?.id),
   });
-  console.log("dataLessonHome", dataLessonHome);
   const getHistory = async (dataPost: HistoryStatusLessonParams) => {
     if (!!dataPost.id) {
       try {

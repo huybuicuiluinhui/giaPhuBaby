@@ -240,7 +240,7 @@ const Home = () => {
         alert("có lỗi xảy ra");
       }
     } catch (error) {
-      console.error(error);
+      console.log('lỗi ' +error);
     }
   };
   const getHealthRecord = async () => {
@@ -452,10 +452,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Page
-        className="flex-1 w-full h-full pt-0  bg-[#-[#F7F8FD] mt-[-1px]"
-        hideScrollbar
-      >
+      <div
+        className="flex-1 w-full pt-0  bg-[#-[#F7F8FD] mt-[-1px] overflow-x-scroll"   >
         {/* slide */}
         <div className="px-2 relative mb-8">
           {!!dataBannerHome &&
@@ -815,7 +813,7 @@ const Home = () => {
                   style={{
                     backgroundImage: `url(${Images.bannerProblem})`,
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
+                    backgroundSize: "100%",
                   }}
                 >
                   <div className="w-[50%] float-right h-[130px] flex items-center justify-center mt-[5%] mr-[1%]">
@@ -1045,7 +1043,7 @@ const Home = () => {
         </div>
         <div className="h-36"></div>
         <ShowListBaby ref={refListBaby} />
-      </Page>
+      </div>
       <ShowListBaby ref={refListBaby} />
       {/*// @ts-ignore*/}
       <ModalAddProduct ref={refModalAddProduct} item={itemProductChoose} />

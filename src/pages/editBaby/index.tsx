@@ -116,7 +116,21 @@ const EditBaby = () => {
       return false;
     }
   };
+  const getProfile = async (name:string) => {
+    try {
+      const res = await profileApi.getUserProfile();
+      setProfile(res.data.data.user);
+      setListBaby(res.data.data.baby);
+      saveListBabyToLS(res.data.data.baby);
 
+      const filteredList = res.data.data.baby.filter(item => item.name === name);
+      console.log(filteredList[0])
+      setSelectedBaby(filteredList[0]);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleEdit = async () => {
     if (checkEmpty()) {
       const objBaby: BabyUpdateModel = {
@@ -134,6 +148,7 @@ const EditBaby = () => {
         weight: Number(weight),
         height: Number(height),
       };
+
       try {
         // @ts-ignore
         const res = await profileApi.editBaby(babyId, objBaby);
@@ -143,6 +158,8 @@ const EditBaby = () => {
           setListBaby(res.data.data.baby);
           saveListBabyToLS(res.data.data.baby);
           navigate(-1);
+
+          getProfile(name)
           openSnackbar({
             position: "top",
 

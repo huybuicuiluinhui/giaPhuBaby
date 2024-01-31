@@ -8,6 +8,7 @@ import {saveListBabyToLS} from "../../utils/auth";
 import profileApi from "../../apis/profileC.apis";
 import LoadingPage from "../loadingScreen";
 import Swal from 'sweetalert2'
+import {data} from "autoprefixer";
 
 const AddBaby = lazy(() => import("../addBaby"));
 const ModalRequestPhone = () => {
@@ -21,7 +22,7 @@ const ModalRequestPhone = () => {
         phoneUser,
         setPhoneUser,
     } = useContext(AppContext);
-    //
+
 
 
     const [loading, setLoading] = React.useState(false);
@@ -45,6 +46,7 @@ const ModalRequestPhone = () => {
     };
     useEffect(() => {
             getProfile()
+            handleLogin()
 
     }, [phoneUser]);
 
@@ -111,28 +113,6 @@ const ModalRequestPhone = () => {
         <div
             className="absolute z-[99] p-0 m-0 w-full h-full flex flex-cols items-center justify-center bg-[#222222]">
             {
-                isOpen ?
-                    (
-                        <div className='h-full w-full bg-cyan-400 '>
-                            <div className="form-login w-[90%] rounded-xl bg-white  m-auto mt-[50%]">
-                                <div className='py-4 px-3 w-full text-center'>
-                                    <input type='text'
-                                           className='block w-full rounded-md border-0 py-1.5 pl-2 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                                           placeholder={'Vui lòng nhập số điện thoại...'}
-                                           onChange={(e) => setPhoneInput(e.target.value)}/>
-                                    <div className="flex content-center btn-click w-full ">
-                                        <button type={'button'}
-                                                className='p-2 bg-emerald-600 rounded-md text-white mt-3'
-                                                onClick={handleLogin}>Đăng nhập
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    ) :
-                    (
-
 
                         <div className="w-[90%] rounded-xl bg-white px-4">
                             <img
@@ -190,23 +170,31 @@ const ModalRequestPhone = () => {
                                 khoản.
                             </p>
                             <p className="font-medium text-base text-center leading-6 mt-2"></p>
-                            <div
-                                className="w-[100%] py-2 flex items-center justify-center border-2 border-[#01B2FF] bg-blue mt-4 mb-3 rounded-md"
-                                onClick={() => setIsOpen(true)}
-                            >
-                                <p className="text-base text-white font-light">
-                                    Liên kết số điện thoại
-                                </p>
-                            </div>
                             {/*<div*/}
-                            {/*  className="w-full box-content py-2 flex items-center justify-center border-2 border-[#01B2FF] mb-6 rounded-md"*/}
-                            {/*  onClick={closeMiniApp}*/}
+                            {/*    className="w-[100%] py-2 flex items-center justify-center border-2 border-[#01B2FF] bg-blue mt-4 mb-3 rounded-md"*/}
+                            {/*    onClick={() => setIsOpen(true)}*/}
                             {/*>*/}
-                            {/*  <p className="text-base text-black font-light">Từ chối và thoát</p>*/}
+                            {/*    <p className="text-base text-white font-light">*/}
+                            {/*        Liên kết số điện thoại*/}
+                            {/*    </p>*/}
                             {/*</div>*/}
+                            <div className='pb-2  w-full text-center'>
+                                <input type='text'
+                                       className='block w-full rounded-md border-0 py-1.5 pl-2 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                       placeholder={'Vui lòng nhập số điện thoại...'}
+                                       onChange={(e) => setPhoneInput(e.target.value)}/>
+                                <div className="flex content-center btn-click w-full ">
+                                    <button type={'button'}
+                                            className='p-2 bg-emerald-600 rounded-md text-white mt-3'
+                                            onClick={handleLogin}>Đăng nhập
+                                    </button>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                    )
+
             }
             {/*// @ts-ignore*/}
             {(loading || logintMutation.isLoading) && <LoadingPage/>}

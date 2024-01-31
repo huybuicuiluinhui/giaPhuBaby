@@ -37,3 +37,23 @@
 .form-login{
   transform: translateY(50%);
 }
+.zaui-box .pt-14{
+  padding-top: 1rem ;
+}
+div::-webkit-scrollbar {
+  display: none;
+}
+
+.zaui-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0;
+  overflow: auto;
+  outline: 0;
+  z-index: 2000 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+}

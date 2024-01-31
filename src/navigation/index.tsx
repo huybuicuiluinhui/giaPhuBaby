@@ -166,13 +166,14 @@ const AppNavigation = () => {
           />
         </Routes>
       </Box>
-      <CustomNavigationBotom />
       {
         !phoneUser&&(
               <ModalRequestPhone />
           )
       }
-
+      {
+        phoneUser&&(<CustomNavigationBotom/>)
+      }
     </Box>
   );
 };
