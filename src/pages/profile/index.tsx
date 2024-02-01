@@ -1,36 +1,38 @@
-import React, { useContext } from "react";
-import { Modal, Page } from "zmp-ui";
-import { useNavigate } from "react-router-dom";
+import React, {useContext} from "react";
+import {Modal, Page} from "zmp-ui";
+import {useNavigate} from "react-router-dom";
 
 import Images from "../../static";
 import "./styles.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { AppContext } from "../../contexts/app.context";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {AppContext} from "../../contexts/app.context";
 import askDoctorApi from "../../apis/askDoctor.apis";
-import { CategoryQuestion, Question } from "../../types/askDoctor.type";
-import { API_URL_IMAGE } from "../../constants/utils";
-import { showTimeAgo } from "../../module";
+import {CategoryQuestion, Question} from "../../types/askDoctor.type";
+import {API_URL_IMAGE} from "../../constants/utils";
+import {showTimeAgo} from "../../module";
 import path from "../../constants/path";
 import problemByAgeApi from "../../apis/problemByAge.apis";
-import { Problem } from "../../types/problem.type";
+import {Problem} from "../../types/problem.type";
 import SpinLoad from "../../components/spinLoad";
 import ItemProductShop from "../../components/itemProductShop";
 import profileApi from "../../apis/profile.apis";
-import { IProductShop } from "../../types/shop.types";
+import {IProductShop} from "../../types/shop.types";
 import ModalAddProduct from "../shop/modalAddProduct";
-import { listCategoryBlog } from "./dataProfile";
+import {listCategoryBlog} from "./dataProfile";
 import HeaderBackHome from "../../components/headerBackHome";
 import ModaNotify from "../../components/modaNotify";
-import { IListAccess } from "../home/typesHome";
-import { listIconProfile } from "../home/dataStaticHome";
+import {IListAccess} from "../home/typesHome";
+import {listIconProfile} from "../home/dataStaticHome";
+
 interface IListCategory {
     title: string;
     icon: string;
     id: string;
 }
+
 const Profile = () => {
     const navigate = useNavigate();
-    const { selectedBaby } = useContext(AppContext);
+    const {selectedBaby} = useContext(AppContext);
     const refModalAddProduct = React.useRef(null);
     const [showAlert, setShowAlert] = React.useState(false);
     const [description, setDescription] = React.useState("");
@@ -54,9 +56,7 @@ const Profile = () => {
     const [listCategory] = React.useState<IListCategory[]>(listCategoryBlog);
     const [listIconUtilities] = React.useState<IListAccess[]>(listIconProfile);
 
-    const handleLogout =()=>{
 
-    }
     const getDataProblem = async () => {
         try {
             let formData = new FormData();
@@ -103,6 +103,8 @@ const Profile = () => {
             setShowAlert(true);
         }
     };
+
+
     const sendQuestion = async () => {
         if (!solutionId) {
             setDescription("Vui lòng chọn 1 danh mục");
@@ -199,10 +201,15 @@ const Profile = () => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.clear()
+        window.location.href = "/";
+    }
+
     return (
         <div className="h-screen p-0 m-0">
             <div className="overflow-y-hidden sticky top-0 z-20">
-                <HeaderBackHome title="Quản lý tài khoản" />
+                <HeaderBackHome title="Quản lý tài khoản"/>
             </div>
             <Page hideScrollbar className="w-full h-full pb-56 bg-[#FFF1F4]">
                 <div className="">
@@ -243,17 +250,17 @@ const Profile = () => {
                                             }
                                         }}
                                     >
-                                        <img src={item.icon} className="w-11 h-11 object-contain" />
+                                        <img src={item.icon} className="w-11 h-11 object-contain"/>
                                         <div
                                             className="text-[#828282] font-bold text-[11px] text-center mb-2 mt-1"
-                                            dangerouslySetInnerHTML={{ __html: item.title }}
+                                            dangerouslySetInnerHTML={{__html: item.title}}
                                         ></div>
                                     </div>
                                 );
                             })}
                     </div>
                 </div>
-                {isLoading && <SpinLoad />}
+                {isLoading && <SpinLoad/>}
                 {/*Câu hỏi của tôi */}
                 {!!dataMyQues && dataMyQues?.length > 0 && (
                     <>
@@ -296,7 +303,7 @@ const Profile = () => {
                                                     className="flex flex-col justify-center items-center"
                                                     onClick={() => {
                                                         navigate(`/detailQuestion/${item.id}`, {
-                                                            state: { item },
+                                                            state: {item},
                                                         });
                                                     }}
                                                 >
@@ -304,7 +311,8 @@ const Profile = () => {
                                                         src={`${API_URL_IMAGE}${item.image}`}
                                                         className="w-[113px] h-[114px] object-cover rounded-xl self-start"
                                                     />
-                                                    <span className="text-[#828282] text-xs pt-2 mr-2 h-10 line-clamp-2 self-start">
+                                                    <span
+                                                        className="text-[#828282] text-xs pt-2 mr-2 h-10 line-clamp-2 self-start">
                             |{item.content_question}
                           </span>
                                                     <div className="flex justify-between items-center pt-2 pr-2 w-full">
@@ -471,7 +479,7 @@ const Profile = () => {
               <span className="text-sm text-[#2a258a] font-semibold">
                 Bot GPT
               </span>
-                            <img src={Images.iconChatGpt} className="px-2" />
+                            <img src={Images.iconChatGpt} className="px-2"/>
                             <span className="text-sm text-[#2a258a] font-semibold">: </span>
                         </div>
                         <div className="flex pl-2">
@@ -546,7 +554,7 @@ const Profile = () => {
                 />
             ) : null}
             {/*// @ts-ignore*/}
-            <ModalAddProduct ref={refModalAddProduct} item={itemProductChoose} />
+            <ModalAddProduct ref={refModalAddProduct} item={itemProductChoose}/>
         </div>
     );
 };
