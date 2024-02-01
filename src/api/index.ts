@@ -36,3 +36,4 @@ const API = {
 export default API;
 
 export const LinkZaloOA = "https://zalo.me/3995727626295309125";
+export  const ID_OA="3995727626295309125";

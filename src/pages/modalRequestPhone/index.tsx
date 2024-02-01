@@ -88,8 +88,9 @@ const ModalRequestPhone = () => {
     return <></>;
   }
   console.log("phoneTemp", phoneTemp);
-  if (!!phoneTemp && listBaby && listBaby.length === 0) {
+  if (isAuthenticated &&!!phoneTemp && listBaby && listBaby.length === 0) {
     return (
+
       <Suspense>
         <AddBaby />
       </Suspense>

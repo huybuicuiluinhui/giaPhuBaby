@@ -28,6 +28,7 @@ import { getIsFollowOA } from "../../utils/auth";
 import ModalSearch from "./modalSearch";
 import ModalSearchKey from "../../components/modalSearchKey";
 import ModaNotify from "../../components/modaNotify";
+import CareOA from "../../CareOA";
 
 export const TitleHome = ({
   icon,
@@ -178,6 +179,7 @@ const Home = () => {
       formData.append("phone", String(phoneUser));
       formData.append("type", "1");
       const res = await profileApi.savefollowOA(formData);
+      setShowFollow(false)
     } catch (error) {
       console.error(error);
     }
@@ -1059,38 +1061,8 @@ const Home = () => {
         />
       ) : null}
       {showFollow && (
-        <div className="fixed bottom-0 z-[9999999] p-0 m-0 w-scrren h-screen flex flex-cols items-center justify-center bg-[#222222]">
-          <div className="w-[90%] rounded-xl bg-white px-4">
-            <div className=" flex flex-col  w-full h-full items-center  my-10 gap-2">
-              <img
-                className="w-40 h-30 object-contain "
-                src={Images.logoLineabon}
-              />
-              <p className="font-semibold text-xl mt-5  mb-2    ">
-                Quan tâm Lineabon
-              </p>
-              <span className="text-center">
-                Hãy follow TPCN Lineabon D3K2 để sử dụng đầy đủ tính năng của
-                ứng dụng Dr.Baby của LineaBon D3K2.
-              </span>
-              <button
-                className="bg-main  w-[85%] py-2 text-white  my-2 mt-2 rounded-lg"
-                onClick={() => {
-                  setShowFollow(false);
-                  // followOAFuc();
-                }}
-              >
-                Tiếp tục
-              </button>
-              <button
-                className="bg-[#0000000d] w-[85%] py-2 text-black  my-2 mt-2 rounded-lg"
-                onClick={() => setShowFollow(false)}
-              >
-                Để sau
-              </button>
-            </div>
-          </div>
-        </div>
+          <CareOA onHandleFollow={saveFollowOA}   />
+
       )}
     </div>
   );
