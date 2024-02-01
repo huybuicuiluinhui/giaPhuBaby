@@ -57,7 +57,6 @@ const DetailLessonHome = () => {
     },
   ]);
   const [videoLink, setVideoLink] = React.useState("");
-
   const dateNow = () => {
     return moment(new Date(Date.now()));
   };
@@ -70,7 +69,10 @@ const DetailLessonHome = () => {
 
     onSuccess: (data) => {
       // @ts-ignore
-      setVideoLink(data?.data?.data?.video);
+      var url = data?.data?.data?.video;
+      // @ts-ignore
+      var newVideo = url.replace("giaphubaby.appdrbaby.com", "linokids.net");
+      setVideoLink(newVideo);
       setSelectBtnTop(location.state.status);
       setIsLiked(
         location.state.like &&
