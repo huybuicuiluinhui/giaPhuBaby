@@ -38,5 +38,5 @@ export default API;
 export const ID_OA = "164675594818273860";
 export const ID_MES = "1385282494836083";
 export const LinkZaloOA = `https://zalo.me/${ID_OA}`;
-export const LinkMes2 = `https://m.me/${ID_MES}?ref=giaphubaby`;
+export const LinkMes = `https://m.me/${ID_MES}?ref=giaphubaby`;
 export const NAME_MINI_WEB = "Gia Phú Baby";

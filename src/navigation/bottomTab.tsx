@@ -2,8 +2,7 @@
 import React, { FC, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { BottomNavigation } from "zmp-ui";
-import Images from "../static";
-import { LinkFace, LinkMes, LinkZaloOA } from "../api";
+import { LinkMes } from "../api";
 import {
   iconCallTab,
   iconHomeTab,
