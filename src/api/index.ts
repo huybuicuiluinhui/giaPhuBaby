@@ -37,9 +37,6 @@ export default API;
 
 export const ID_OA = "164675594818273860";
 export const ID_MES = "1385282494836083";
-export const userId = "1385282494836083";
 export const LinkZaloOA = `https://zalo.me/${ID_OA}`;
-export const LinkFace = `https://www.facebook.com/messages/t/${ID_MES}`;
-export const LinkMes = `fb-messenger://user-thread/${userId}`;
-export const LinkMes2 = `https://m.me/rn/1385282494836083/?ref=topic_8130228_Giaphubaby&topic=B%C3%A1c%20s%C4%A9%20c%E1%BB%A7a%20con&cadence=DAILY&payload=8130228`;
+export const LinkMes2 = `https://m.me/${ID_MES}?ref=giaphubaby`;
 export const NAME_MINI_WEB = "Gia Phú Baby";
