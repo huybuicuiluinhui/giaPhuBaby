@@ -24,10 +24,11 @@ import { IProductShop } from "../../types/shop.types";
 import communityApi from "../../apis/postCommunity.apis";
 import { formatDecimalNumber } from "../../utils/Utilities";
 import profileApi from "../../apis/profile.apis";
-import { getIsFollowOA } from "../../utils/auth";
+import { getIsFollowOA, saveListBabyToLS } from "../../utils/auth";
 import ModalSearch from "./modalSearch";
 import ModalSearchKey from "../../components/modalSearchKey";
 import ModaNotify from "../../components/modaNotify";
+import profileApiC from "../../apis/profileC.apis";
 
 export const TitleHome = ({
   icon,
@@ -78,7 +79,8 @@ export const BtnAccessHome = ({ onClick }) => {
 };
 const Home = () => {
   const navigate = useNavigate();
-  const { selectedBaby, phoneUser } = useContext(AppContext);
+  const { selectedBaby, phoneUser, setProfile, setListBaby, setSelectedBaby } =
+    useContext(AppContext);
   const [itemProductChoose, setItemProductChoose] =
     React.useState<IProductShop>();
   const [showAlert, setShowAlert] = React.useState(false);
@@ -263,8 +265,21 @@ const Home = () => {
       setLoadingIndex(false);
     }
   };
+  const getProfile = async () => {
+    try {
+      const res = await profileApiC.getUserProfile();
+      console.log("res", res);
+      setProfile(res.data.data.user);
+      setListBaby(res.data.data.baby);
+      saveListBabyToLS(res.data.data.baby);
+      setSelectedBaby(res.data.data.baby[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   React.useEffect(() => {
     getListProductAccordingProblem();
+    getProfile();
   }, []);
   React.useEffect(() => {
     if (!phoneUser) {
@@ -329,6 +344,10 @@ const Home = () => {
   const handleUpload = () => {
     refInputImage.current?.click();
   };
+  // const [selectedBaby2, setSelectedBaby2] = React.useState<any>(
+  //   localStorage.getItem("list_baby")
+  // );
+  // console.log("selectedBaby2", selectedBaby);
   // @ts-ignore
   const InfoBae = ({
     // @ts-ignore

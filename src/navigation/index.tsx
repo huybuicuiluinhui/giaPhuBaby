@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { CustomNavigationBotom } from "./bottomTab";
 import Home from "../pages/home";
@@ -52,8 +52,9 @@ import DetailBlog from "../pages/profile/detailBlog";
 import Comfirm from "../pages/comfirm";
 import LisPostWithProblem from "../pages/listPostWithProblem";
 import DetailPostProblem from "../pages/listPostWithProblem/detailPostProblem";
-import {AppContext} from "../contexts/app.context";
-import {Box} from "zmp-ui";
+import { AppContext } from "../contexts/app.context";
+import { Box } from "zmp-ui";
+import AddBaby from "../pages/addBaby";
 const AppNavigation = () => {
   // if (getSystemInfo().platform === "android") {
   //   const androidSafeTop = Math.round(
@@ -66,18 +67,11 @@ const AppNavigation = () => {
   //   );
   // }
 
-  const {
-    phoneUser,
-    setPhoneUser,
-  } = useContext(AppContext);
-
+  const { phoneUser, setPhoneUser, listBaby } = useContext(AppContext);
 
   React.useEffect(() => {
-    setPhoneUser(localStorage.getItem('phoneUser'))
+    setPhoneUser(localStorage.getItem("phoneUser"));
   }, []);
-
-
-
   return (
     <Box flex flexDirection="column" className="h-screen relative">
       <Box className="flex-1 flex flex-col overflow-hidden">
@@ -166,14 +160,12 @@ const AppNavigation = () => {
           />
         </Routes>
       </Box>
-      {
-        !phoneUser&&(
-              <ModalRequestPhone />
-          )
-      }
-      {
-        phoneUser&&(<CustomNavigationBotom/>)
-      }
+
+      {!localStorage.getItem("phoneUser") && <ModalRequestPhone />}
+      {localStorage.getItem("phoneUser") && listBaby.length === 0 && (
+        <AddBaby />
+      )}
+      {phoneUser && <CustomNavigationBotom />}
     </Box>
   );
 };

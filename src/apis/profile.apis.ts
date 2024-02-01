@@ -7,17 +7,18 @@ const profileApi = {
     http.get<SuccessResponse<HealthyBaby>>(
       `http://103.226.249.30:8001/api/healths/${id}`
     ),
-  getHealthRecord: (formData:any) =>
+  getHealthRecord: (formData: any) =>
     http.post(`/api/milestones/health-records`, formData),
-  getListMilestone: (id:any) => http.get(`/api/milestones/list-milestone/${id}`),
+  getListMilestone: (id: any) =>
+    http.get(`/api/milestones/list-milestone/${id}`),
   getProductRecommend: () => http.get(`/api/product-recommended`),
-  getBabyHealth: (formData:any) =>
+  getBabyHealth: (formData: any) =>
     http.post(`/api/health-index/weight-height`, formData),
-  getWHO: (formData:any) =>
+  getWHO: (formData: any) =>
     http.post(`/api/health-index/weight-height-who`, formData),
-  checkFollow: (formData:any) => http.post(`/api/follow-zalo`, formData),
-  savefollowOA: (formData:any) => http.post(`/api/add/follow-zalo`, formData),
-  addMilestonWithMonthBaby: (formData:any) => {
+  checkFollow: (formData: any) => http.post(`/api/follow-zalo`, formData),
+  savefollowOA: (formData: any) => http.post(`/api/add/follow-zalo`, formData),
+  addMilestonWithMonthBaby: (formData: any) => {
     return http.post("/api/milestones/add-milestones-by-month", formData);
   },
 };

@@ -8,9 +8,8 @@ import { saveListBabyToLS } from "../../utils/auth";
 import profileApi from "../../apis/profileC.apis";
 import LoadingPage from "../loadingScreen";
 import Swal from "sweetalert2";
-import { data } from "autoprefixer";
+import profileApiC from "../../apis/profileC.apis";
 
-const AddBaby = lazy(() => import("../addBaby"));
 const ModalRequestPhone = () => {
   const {
     isAuthenticated,
@@ -27,13 +26,11 @@ const ModalRequestPhone = () => {
 
   const [phoneTemp, setPhoneTemp] = React.useState("");
 
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const [phoneInput, setPhoneInput] = React.useState("");
-
+  const [phoneInput, setPhoneInput] = React.useState(phoneUser);
   const getProfile = async () => {
     try {
-      const res = await profileApi.getUserProfile();
+      const res = await profileApiC.getUserProfile();
+      console.log("res", res);
       setProfile(res.data.data.user);
       setListBaby(res.data.data.baby);
       saveListBabyToLS(res.data.data.baby);
@@ -42,11 +39,6 @@ const ModalRequestPhone = () => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getProfile();
-    handleLogin();
-  }, [phoneUser]);
-
   const logintMutation = useMutation({
     mutationFn: (body: { phone: string }) => authApi.login(body),
   });
@@ -58,14 +50,15 @@ const ModalRequestPhone = () => {
       try {
         setLoading(true);
         const body = { phone: phoneInput };
+        console.log(phoneInput);
         const res = await authApi.login(body);
         if (res.data.code === 200) {
-          getProfile();
-          console.log(phoneInput);
-          setPhoneTemp(phoneInput);
-          setPhoneUser(phoneInput);
+          const phone = res.data?.data?.user?.userName;
+          setPhoneTemp(phone);
           setIsAuthenticated(true);
-          localStorage.setItem("phoneUser", phoneInput);
+          setPhoneUser(phone);
+          localStorage.setItem("phoneUser", phone);
+          getProfile();
         } else {
           alert("Thử lại sau");
         }
@@ -84,18 +77,15 @@ const ModalRequestPhone = () => {
       });
     }
   };
-  if (isAuthenticated && !!phoneTemp && !!listBaby && !!listBaby.length) {
+
+  if (
+    isAuthenticated &&
+    !!localStorage.getItem("phoneUser") &&
+    !!listBaby &&
+    !!listBaby.length
+  ) {
     return <></>;
   }
-  console.log("phoneTemp", phoneTemp);
-  if (!!phoneTemp && listBaby && listBaby.length === 0) {
-    return (
-      <Suspense>
-        <AddBaby />
-      </Suspense>
-    );
-  }
-
   return (
     <div className="absolute z-[99] p-0 m-0 w-full h-full flex flex-cols items-center justify-center bg-[#222222]">
       {
@@ -109,67 +99,13 @@ const ModalRequestPhone = () => {
             LINEABON
           </p>
           <p className=" font-semibold text-base leading-6 mt-2">
-            Chào mừng bạn đến với chương trình “Trở thành Bác sĩ của con cùng LineaBon”.
-            Với bảo trợ chuyên môn từ Bác sĩ Chuyên khoa II Hoàng Quốc Tưởng, Dr.Baby sẽ trở thành một trợ lý đắc lực, giúp bạn nuôi con khoa học và đơn giản.
-            Hãy nhập số điện thoại để bắt đầu ngay bây giờ!
-
+            Chào mừng bạn đến với chương trình “Trở thành Bác sĩ của con cùng
+            LineaBon”. Với bảo trợ chuyên môn từ Bác sĩ Chuyên khoa II Hoàng
+            Quốc Tưởng, Dr.Baby sẽ trở thành một trợ lý đắc lực, giúp bạn nuôi
+            con khoa học và đơn giản. Hãy nhập số điện thoại để bắt đầu ngay bây
+            giờ!
           </p>
-          {/*<div className="flex items-center mt-1">*/}
-          {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">*/}
-          {/*    <path*/}
-          {/*      d="M7.01855 4L13.0186 10L7.01855 16"*/}
-          {/*      stroke="#01B2FF"*/}
-          {/*      strokeWidth="2"*/}
-          {/*      strokeLinecap="round"*/}
-          {/*      strokeLinejoin="round"*/}
-          {/*    />*/}
-          {/*  </svg>*/}
-          {/*  <p className=" font-medium text-base leading-6 ">*/}
-          {/*    Định danh tài khoản*/}
-          {/*  </p>*/}
-          {/*</div>*/}
-          {/*<div className="flex items-center mt-1">*/}
-          {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">*/}
-          {/*    <path*/}
-          {/*      d="M7.01855 4L13.0186 10L7.01855 16"*/}
-          {/*      stroke="#01B2FF"*/}
-          {/*      strokeWidth="2"*/}
-          {/*      strokeLinecap="round"*/}
-          {/*      strokeLinejoin="round"*/}
-          {/*    />*/}
-          {/*  </svg>*/}
-          {/*  <p className=" font-medium text-base leading-6 ">*/}
-          {/*    Mua bán sản phẩm*/}
-          {/*  </p>*/}
-          {/*</div>*/}
-          {/*<div className="flex items-center mt-1">*/}
-          {/*  <svg width="21" height="20" viewBox="0 0 21 20" fill="none">*/}
-          {/*    <path*/}
-          {/*      d="M7.01855 4L13.0186 10L7.01855 16"*/}
-          {/*      stroke="#01B2FF"*/}
-          {/*      strokeWidth="2"*/}
-          {/*      strokeLinecap="round"*/}
-          {/*      strokeLinejoin="round"*/}
-          {/*    />*/}
-          {/*  </svg>*/}
-          {/*  <p className=" font-medium text-base leading-6 ">*/}
-          {/*    Tra cứu đơn hàng*/}
-          {/*  </p>*/}
-          {/*</div>*/}
-
-          {/*<p className=" font-medium text-base  leading-6 mt-2">*/}
-          {/*  Vui lòng đồng ý chia sẻ số điện thoại với LineaBon để liên kết tài*/}
-          {/*  khoản.*/}
-          {/*</p>*/}
           <p className="font-medium text-base text-center leading-6 mt-2"></p>
-          {/*<div*/}
-          {/*    className="w-[100%] py-2 flex items-center justify-center border-2 border-main bg-blue mt-4 mb-3 rounded-md"*/}
-          {/*    onClick={() => setIsOpen(true)}*/}
-          {/*>*/}
-          {/*    <p className="text-base text-white font-light">*/}
-          {/*        Liên kết số điện thoại*/}
-          {/*    </p>*/}
-          {/*</div>*/}
           <div className="pb-2  w-full text-center">
             <input
               type="text"

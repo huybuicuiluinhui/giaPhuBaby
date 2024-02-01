@@ -7,8 +7,8 @@ import moment from "moment";
 import { dataFamily } from "./family";
 import { CreateBabyConfig } from "../../types/user.type";
 import { AppContext } from "../../contexts/app.context";
-import profileApi from "../../apis/profileC.apis";
 import { saveListBabyToLS } from "../../utils/auth";
+import profileApiC from "../../apis/profileC.apis";
 
 const AddBaby = () => {
   const { profile, setSelectedBaby, setProfile, setListBaby } =
@@ -18,6 +18,8 @@ const AddBaby = () => {
   const [name, setName] = React.useState<string>("");
   const [dayChoose, setDayChoose] = useState(new Date());
   const [isEarly, setIsEarly] = useState<boolean>(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
   const [position, setPosition] = useState<{
     id: string | null;
     value: string;
@@ -61,10 +63,10 @@ const AddBaby = () => {
   };
 
   const onConfirm = async () => {
-    if (checkEmpty()) {
+    if (checkEmpty() && !buttonDisabled) {
+      setButtonDisabled(true);
       const objBaby: CreateBabyConfig = {
-        // @ts-ignore
-        user_id: profile?.id,
+        user_id: profile?.id || 0,
         name,
         dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
         gender,
@@ -76,9 +78,9 @@ const AddBaby = () => {
         height: Number(0),
       };
       try {
-        const res = await profileApi.createBaby(objBaby);
+        const res = await profileApiC.createBaby(objBaby);
         if (res.data.code === 200) {
-          const res = await profileApi.getUserProfile();
+          const res = await profileApiC.getUserProfile();
           setProfile(res.data.data.user);
           setListBaby(res.data.data.baby);
           saveListBabyToLS(res.data.data.baby);
@@ -88,6 +90,8 @@ const AddBaby = () => {
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setButtonDisabled(false);
       }
     } else {
       return;
@@ -96,7 +100,7 @@ const AddBaby = () => {
 
   return (
     <div className="absolute z-[99] p-0 m-0 w-full h-full flex flex-cols items-center justify-center bg-[#222222]">
-      <div className="w-full flex flex-col h-full rounded-xl bg-main">
+      <div className="w-full flex flex-col h-full rounded-xl bg-[#01B2FF]">
         <div className="w-full flex flex-col items-center justify-center pt-14 pb-4">
           <p className="text-lg font-bold text-white uppercase">Thêm bé</p>
           <p className="text-lg font-medium text-white">
@@ -118,7 +122,7 @@ const AddBaby = () => {
                   className="w-32 h-32 rounded-2xl object-cover"
                 />
                 <div className="absolute w-full  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
-                  <p className="text-main text-sm font-normal">
+                  <p className="text-[#01B2FF] text-sm font-normal">
                     Mặc định theo bé
                   </p>
                 </div>
@@ -243,7 +247,7 @@ const AddBaby = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <p className="font-normal text-sm text-main my-2">
+            <p className="font-normal text-sm text-[#01B2FF] my-2">
               Ngày tháng năm sinh của bé
             </p>
             <div className="flex items-center ">
@@ -302,8 +306,8 @@ const AddBaby = () => {
                 }}
               />
             </div>
-            <div className="w-full h-[2px] bg-main mt-1"></div>
-            <p className="font-normal text-sm text-main my-2">Bạn là:</p>
+            <div className="w-full h-[2px] bg-[#01B2FF] mt-1"></div>
+            <p className="font-normal text-sm text-[#01B2FF] my-2">Bạn là:</p>
             <div
               className="flex items-center w-full"
               onClick={() => setSheetVisible(true)}
@@ -370,7 +374,7 @@ const AddBaby = () => {
                 </defs>
               </svg>
             </div>
-            <div className="w-full h-[2px] bg-main mt-1 mb-3"></div>
+            <div className="w-full h-[2px] bg-[#01B2FF] mt-1 mb-3"></div>
             <Sheet
               visible={sheetVisible}
               onClose={() => setSheetVisible(false)}
@@ -415,7 +419,7 @@ const AddBaby = () => {
             {/* done  */}
             <div
               onClick={onConfirm}
-              className="flex items-center justify-center w-full bg-main rounded-2xl mx-auto py-2 my-4 mt-10 "
+              className="flex items-center justify-center w-full bg-[#01B2FF] rounded-2xl mx-auto py-2 my-4 mt-10 "
             >
               <p className="text-base text-white text-center mr-1">Xong</p>
               <svg width="15" height="8" viewBox="0 0 15 8" fill="none">

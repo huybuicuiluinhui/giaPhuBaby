@@ -14,7 +14,7 @@ import { saveListBabyToLS } from "../../utils/auth";
 import InputBaby from "../addBaby/inputBaby";
 import { dataFamily } from "../addBaby/family";
 import { useLocation, useNavigate } from "react-router-dom";
-// import { chooseImage } from "zmp-sdk/apis";
+import profileApiC from "../../apis/profileC.apis";
 const EditBaby = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -118,7 +118,7 @@ const EditBaby = () => {
   };
   const getProfile = async (name: string) => {
     try {
-      const res = await profileApi.getUserProfile();
+      const res = await profileApiC.getUserProfile();
       setProfile(res.data.data.user);
       setListBaby(res.data.data.baby);
       saveListBabyToLS(res.data.data.baby);
@@ -152,9 +152,9 @@ const EditBaby = () => {
 
       try {
         // @ts-ignore
-        const res = await profileApi.editBaby(babyId, objBaby);
+        const res = await profileApiC.editBaby(babyId, objBaby);
         if (res.data.code === 200) {
-          const res = await profileApi.getUserProfile();
+          const res = await profileApiC.getUserProfile();
           setProfile(res.data.data.user);
           setListBaby(res.data.data.baby);
           saveListBabyToLS(res.data.data.baby);
@@ -198,9 +198,9 @@ const EditBaby = () => {
         height: Number(height),
       };
       try {
-        const res = await profileApi.createBaby(objBaby);
+        const res = await profileApiC.createBaby(objBaby);
         if (res.data.code === 200) {
-          const res = await profileApi.getUserProfile();
+          const res = await profileApiC.getUserProfile();
           setProfile(res.data.data.user);
           setListBaby(res.data.data.baby);
           saveListBabyToLS(res.data.data.baby);
@@ -227,6 +227,7 @@ const EditBaby = () => {
   };
 
   const onConfirm = () => {
+    console.log("type", type);
     if (type === 1) {
       handleEdit();
     } else {
@@ -260,9 +261,9 @@ const EditBaby = () => {
   const onDelete = async () => {
     try {
       // @ts-ignore
-      const res = await profileApi.deleteBaby(babyId);
+      const res = await profileApiC.deleteBaby(babyId);
       if (res.data.code === 200) {
-        const res = await profileApi.getUserProfile();
+        const res = await profileApiC.getUserProfile();
         setProfile(res.data.data.user);
         setListBaby(res.data.data.baby);
         saveListBabyToLS(res.data.data.baby);

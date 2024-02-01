@@ -9,7 +9,7 @@ import {
   IRBaby,
   PRMODEL,
 } from "../types/user.type";
-const profileApi = {
+const profileApiC = {
   getUserProfile: () => http.get<SuccessResponse<IRBaby>>("/api/userProfile"),
   createBaby: (params: CreateBabyConfig) =>
     http.post<SuccessResponse<BabyModel>>("/api/userProfile/create", params),
@@ -17,4 +17,4 @@ const profileApi = {
     http.put<SuccessResponse<PRMODEL>>(`/api/userProfile/update/${id}`, params),
   deleteBaby: (id: string) => http.delete(`/api/userProfile/delete/${id}`),
 };
-export default profileApi;
+export default profileApiC;
