@@ -45,7 +45,7 @@ const ModalSearchKey = ({ setModal, month }) => {
                   y1="13.4141"
                   x2="5.63611"
                   y2="19.7781"
-                  stroke="#01B2FF"
+                  stroke="#e23795"
                   strokeWidth="2"
                 />
               </svg>

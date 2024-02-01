@@ -1,9 +1,9 @@
-export const baseUrl = "https://linokids.net/";
+export const baseUrl = "https://giaphubaby.appdrbaby.com/";
 const revo = "https://cms.temchonggia.com/backend/";
 const API = {
   loginZalo: () => baseUrl + "api/login-zalo-miniapp",
   milestones: () => baseUrl + `api/milestones/list-month`, // danh sách các tháng của cột mốc
-  listMilestone: (id:any) => baseUrl + `api/milestones/list-milestone/${id}`, // chi tiết của danh sách các tháng của cột mốc
+  listMilestone: (id: any) => baseUrl + `api/milestones/list-milestone/${id}`, // chi tiết của danh sách các tháng của cột mốc
   getMilestonesInMonth: () =>
     baseUrl + "api/milestones/get-milestones-in-month",
   checkIsDoneMilestoneMonth: () =>
@@ -26,14 +26,20 @@ const API = {
   getDataWHO: () => baseUrl + "api/health-index/weight-height-who",
   getDataParameters: () =>
     baseUrl + "api/milestones/get-milestones-in-month-category",
-  getBlogs: (age:any, category:any, page:any) =>
+  getBlogs: (age: any, category: any, page: any) =>
     baseUrl + `api/blogs?age=${age}&category=${category}&page=${page}`,
-  getDetailBlog: (id:any) => baseUrl + `api/blogs/${id}`,
-  addMilestonWithMonthBaby: (id:any) =>
+  getDetailBlog: (id: any) => baseUrl + `api/blogs/${id}`,
+  addMilestonWithMonthBaby: (id: any) =>
     baseUrl + `api/milestones/add-milestones-by-month`,
 };
 
 export default API;
 
-export const LinkZaloOA = "https://zalo.me/3995727626295309125";
-export  const ID_OA="3995727626295309125";
+export const ID_OA = "164675594818273860";
+export const ID_MES = "1385282494836083";
+export const userId = "1385282494836083";
+export const LinkZaloOA = `https://zalo.me/${ID_OA}`;
+export const LinkFace = `https://www.facebook.com/messages/t/${ID_MES}`;
+export const LinkMes = `fb-messenger://user-thread/${userId}`;
+export const LinkMes2 = `https://m.me/rn/1385282494836083/?ref=topic_8130228_Giaphubaby&topic=B%C3%A1c%20s%C4%A9%20c%E1%BB%A7a%20con&cadence=DAILY&payload=8130228`;
+export const NAME_MINI_WEB = "Gia Phú Baby";

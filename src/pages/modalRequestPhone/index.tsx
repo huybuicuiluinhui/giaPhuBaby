@@ -9,6 +9,7 @@ import profileApi from "../../apis/profileC.apis";
 import LoadingPage from "../loadingScreen";
 import Swal from "sweetalert2";
 import profileApiC from "../../apis/profileC.apis";
+import { NAME_MINI_WEB } from "../../api";
 
 const ModalRequestPhone = () => {
   const {
@@ -96,14 +97,14 @@ const ModalRequestPhone = () => {
           />
           <p className=" font-bold uppercase text-center text-lg leading-6 my-2">
             CHÀO MỪNG ĐẾN VỚI <br />
-            LINEABON
+            {NAME_MINI_WEB}
           </p>
           <p className=" font-semibold text-base leading-6 mt-2">
             Chào mừng bạn đến với chương trình “Trở thành Bác sĩ của con cùng
-            LineaBon”. Với bảo trợ chuyên môn từ Bác sĩ Chuyên khoa II Hoàng
-            Quốc Tưởng, Dr.Baby sẽ trở thành một trợ lý đắc lực, giúp bạn nuôi
-            con khoa học và đơn giản. Hãy nhập số điện thoại để bắt đầu ngay bây
-            giờ!
+            {NAME_MINI_WEB} với Dr.Baby”. Với bảo trợ chuyên môn từ Bác sĩ
+            Chuyên khoa II Hoàng Quốc Tưởng, Dr.Baby sẽ trở thành một trợ lý đắc
+            lực, giúp bạn nuôi con khoa và đơn giản. Hãy nhập số điện thoại để
+            bắt đầu ngay bây giờ!
           </p>
           <p className="font-medium text-base text-center leading-6 mt-2"></p>
           <div className="pb-2  w-full text-center">

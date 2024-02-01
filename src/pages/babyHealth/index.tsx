@@ -59,7 +59,7 @@ const BabyHealth = () => {
 
   return (
     <div className="w-screen h-screen bg-white ">
-      <div className=" bg-[#01B2FF] ">
+      <div className=" bg-[#e23795] ">
         <Header title="Chiều cao - cân nặng" />
         <div className=" flex justify-between items-center  px-[20px] ">
           <div className="flex flex-col justify-center items-center flex-[0.8]">

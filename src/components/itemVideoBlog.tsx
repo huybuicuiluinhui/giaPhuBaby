@@ -310,7 +310,7 @@ const ItemVideoBlog = (props: IProps) => {
                 <svg width="24" height="20" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M7.41 8.57999L12 13.17L16.59 8.57999L18 9.99999L12 16L6 9.99999L7.41 8.57999Z"
-                    fill="#01B2FF"
+                    fill="#e23795"
                   />
                 </svg>
               </div>

@@ -201,7 +201,7 @@ const DetailLessonHome = () => {
       <div className="flex items-center mx-2 px-2 rounded-t-2xl -mt-1">
         {!!routes &&
           routes.map((item, index) => {
-            let bgColor = item.key === "info" ? "#F26091" : "#01B2FF";
+            let bgColor = item.key === "info" ? "#F26091" : "#e23795";
             return (
               <div
                 key={index}
@@ -304,7 +304,7 @@ const DetailLessonHome = () => {
                   className="rounded-2xl flex items-center justify-center py-2"
                   style={{
                     backgroundColor:
-                      selectBtnTop === "completed" ? "#01B2FF" : "#DEDEDE",
+                      selectBtnTop === "completed" ? "#e23795" : "#DEDEDE",
                   }}
                   onClick={() => selectStatus("completed")}
                 >
@@ -326,7 +326,7 @@ const DetailLessonHome = () => {
                   className="rounded-2xl flex items-center justify-center py-2"
                   style={{
                     backgroundColor:
-                      selectBtnTop === "easily" ? "#01B2FF" : "#DEDEDE",
+                      selectBtnTop === "easily" ? "#e23795" : "#DEDEDE",
                   }}
                   onClick={() => selectStatus("easily")}
                 >
@@ -345,7 +345,7 @@ const DetailLessonHome = () => {
                   className="rounded-2xl flex items-center justify-center py-2"
                   style={{
                     backgroundColor:
-                      selectBtnTop === "hard" ? "#01B2FF" : "#DEDEDE",
+                      selectBtnTop === "hard" ? "#e23795" : "#DEDEDE",
                   }}
                   onClick={() => selectStatus("hard")}
                 >

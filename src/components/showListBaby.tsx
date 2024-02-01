@@ -58,7 +58,7 @@ const ShowListBaby = React.forwardRef((props, ref) => {
                       className="text-base uppercase line-clamp-2"
                       style={{
                         color:
-                          selectedBaby?.id === item.id ? "#01B2FF" : "#828282",
+                          selectedBaby?.id === item.id ? "#e23795" : "#828282",
                       }}
                     >
                       {item.name}
@@ -67,7 +67,7 @@ const ShowListBaby = React.forwardRef((props, ref) => {
                       className="text-sm"
                       style={{
                         color:
-                          selectedBaby?.id === item.id ? "#01B2FF" : "#828282",
+                          selectedBaby?.id === item.id ? "#e23795" : "#828282",
                       }}
                     >
                       {showAgeByMonth(item.realAge)}

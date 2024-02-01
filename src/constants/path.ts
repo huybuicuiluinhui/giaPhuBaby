@@ -45,7 +45,6 @@ const path = {
   uploadVideo: "/uploadVideo",
   listProductBuyAgain: "/listProductBuyAgain",
   listProblemByMonth: "/listProblemByMonth",
-  comfirm: "/comfirm",
   listBlog: "/listBlog",
   detailBlog: "/detailBlog",
   lisPostWithProblem: "/lisPostWithProblem",

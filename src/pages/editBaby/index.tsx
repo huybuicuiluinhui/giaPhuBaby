@@ -365,7 +365,7 @@ const EditBaby = () => {
                   onClick={() => setGender("male")}
                   className=" flex items-center justify-center rounded-2xl mb-4 py-2 "
                   style={{
-                    backgroundColor: gender === "male" ? "#01B2FF" : "#DEDEDE",
+                    backgroundColor: gender === "male" ? "#e23795" : "#DEDEDE",
                   }}
                 >
                   {gender === "male" ? (
@@ -419,7 +419,7 @@ const EditBaby = () => {
                   className=" flex items-center justify-center mt-4 rounded-2xl py-2"
                   style={{
                     backgroundColor:
-                      gender === "female" ? "#01B2FF" : "#DEDEDE",
+                      gender === "female" ? "#e23795" : "#DEDEDE",
                   }}
                 >
                   {gender === "female" ? (
@@ -630,7 +630,7 @@ const EditBaby = () => {
                         className="w-full flex items-center justify-center py-1"
                         style={{
                           backgroundColor:
-                            item === position ? "#01B2FF" : "transparent",
+                            item === position ? "#e23795" : "transparent",
                         }}
                         key={item.id}
                         onClick={() => {

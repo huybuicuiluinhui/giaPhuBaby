@@ -55,7 +55,7 @@ export default function MyOrder() {
               style={{
                 // width: index === 2 ? "31%" : "23%",
                 borderBottomWidth: index === choose ? 1 : 0,
-                borderBottomColor: index === choose ? "#01B2FF" : "#000",
+                borderBottomColor: index === choose ? "#e23795" : "#000",
               }}
               onClick={() => {
                 handleTabClick(index);
@@ -64,7 +64,7 @@ export default function MyOrder() {
               <p
                 className="text-xs text-[#6ecff9] font-bold text-center"
                 style={{
-                  color: index === choose ? "#01B2FF" : "#000",
+                  color: index === choose ? "#e23795" : "#000",
                 }}
               >
                 {item.title}

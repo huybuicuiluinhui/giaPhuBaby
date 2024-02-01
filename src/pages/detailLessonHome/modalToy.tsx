@@ -7,13 +7,9 @@ import { AppContext } from "../../contexts/app.context";
 import Images from "../../static";
 import { checkBgIconObject } from "../../utils/checkBgIcon";
 import { dataStatic } from "../../constants/data";
-// import { openWebview } from "zmp-sdk/apis";
-import path from "../../constants/path";
-import { useNavigate } from "react-router-dom";
 
 const ModalToy = React.forwardRef((props, ref) => {
   const [showModalToy, setShowModalToy] = React.useState(false);
-  const navigate = useNavigate();
   const { selectedBaby } = useContext(AppContext);
   const { data: dataToyByMonth } = useQuery({
     queryKey: ["dataToyByMonth", selectedBaby?.id],
@@ -48,6 +44,11 @@ const ModalToy = React.forwardRef((props, ref) => {
             !!dataToyByMonth.data.data.toy &&
             !!dataToyByMonth.data.data.toy.length &&
             dataToyByMonth.data.data.toy.map((item, index) => {
+              var url = item.image;
+              var newUrl = url.replace(
+                "giaphubaby.appdrbaby.com",
+                "linokids.net"
+              );
               const cateofToy =
                 dataStatic.listLesson[
                   dataStatic.listLesson.findIndex(
@@ -61,7 +62,7 @@ const ModalToy = React.forwardRef((props, ref) => {
                 >
                   <div className="w-[35%] h-24">
                     <img
-                      src={item.image ? item.image : Images.toy}
+                      src={item.image ? newUrl : Images.toy}
                       className="w-full h-full rounded-2xl"
                     />
                   </div>

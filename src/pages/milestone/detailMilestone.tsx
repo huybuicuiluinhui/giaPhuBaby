@@ -169,6 +169,11 @@ const DetailMilestones = ({
                               !!item2.video.length &&
                               // @ts-ignore
                               item2?.video?.map((action, actionIndex) => {
+                                var url = action?.detai_video?.image;
+                                var newUrl = url.replace(
+                                  "giaphubaby.appdrbaby.com",
+                                  "linokids.net"
+                                );
                                 return (
                                   <SwiperSlide
                                     key={actionIndex}
@@ -189,7 +194,7 @@ const DetailMilestones = ({
                                       }
                                     >
                                       <img
-                                        src={action?.detai_video?.image}
+                                        src={newUrl}
                                         alt="alt text here"
                                         className=" w-full h-[89px] object-cover"
                                       />
@@ -237,7 +242,7 @@ const DetailMilestones = ({
                               >
                                 <path
                                   fillRule="evenodd"
-                                  stroke="#01B2FF"
+                                  stroke="#e23795"
                                   d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
                                 />
                               </svg>
@@ -260,7 +265,7 @@ const DetailMilestones = ({
                               <span
                                 style={
                                   item.id + `${item2.id}` === isOpenVd
-                                    ? { color: "#01B2FF" }
+                                    ? { color: "#e23795" }
                                     : { color: "#D86B90" }
                                 }
                                 className="text-[13px] font-semibold pr-1"

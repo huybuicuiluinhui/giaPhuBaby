@@ -21,7 +21,7 @@
   }
 }
 .zaui-page-hide-scrollbar .zaui-input-affix-wrapper {
-  border: 1px solid #01b2ff !important;
+  border: 1px solid #e23795 !important;
 }
 .zaui-page.disable-scrolling {
   overflow: auto !important;
@@ -44,7 +44,6 @@ div::-webkit-scrollbar {
 }
 
 .zaui-modal-wrapper {
-
   position: fixed;
   top: 0;
   left: 0;

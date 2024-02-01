@@ -49,7 +49,6 @@ import ListProductBuyAgain from "../pages/listProductBuyAgain";
 import ListProblemByMonth from "../pages/listProblemByMonth";
 import ListBlog from "../pages/profile/listBlog";
 import DetailBlog from "../pages/profile/detailBlog";
-import Comfirm from "../pages/comfirm";
 import LisPostWithProblem from "../pages/listPostWithProblem";
 import DetailPostProblem from "../pages/listPostWithProblem/detailPostProblem";
 import { AppContext } from "../contexts/app.context";
@@ -138,7 +137,6 @@ const AppNavigation = () => {
           <Route path={path.listBuyAgain} element={<ListBuyAgain />} />
           <Route path={path.uploadPost} element={<UploadPost />} />
           <Route path={path.uploadVideo} element={<UploadVideo />} />
-          <Route path={path.comfirm} element={<Comfirm />} />
           <Route path={path.listBlog} element={<ListBlog />} />
           <Route path={path.detailBlog} element={<DetailBlog />} />
           <Route
@@ -160,7 +158,7 @@ const AppNavigation = () => {
           />
         </Routes>
       </Box>
-
+      {/*  */}
       {!localStorage.getItem("phoneUser") && <ModalRequestPhone />}
       {localStorage.getItem("phoneUser") && listBaby.length === 0 && (
         <AddBaby />

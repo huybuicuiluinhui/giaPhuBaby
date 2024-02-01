@@ -77,7 +77,7 @@ const Community = () => {
           <div
             className="flex items-center w-full gap-2 rounded-full flex-1 justify-center py-2"
             style={{
-              backgroundColor: currentIndex === 0 ? "#01B2FF" : "#dedede",
+              backgroundColor: currentIndex === 0 ? "#e23795" : "#dedede",
             }}
             onClick={() => handleTabClick(0)}
           >
@@ -116,7 +116,7 @@ const Community = () => {
           <div
             className="flex items-center w-full bg-[#dedede] gap-2 rounded-full flex-1 justify-center py-2"
             style={{
-              backgroundColor: currentIndex === 1 ? "#01B2FF" : "#dedede",
+              backgroundColor: currentIndex === 1 ? "#e23795" : "#dedede",
             }}
             onClick={() => handleTabClick(1)}
           >

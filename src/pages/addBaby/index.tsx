@@ -100,7 +100,7 @@ const AddBaby = () => {
 
   return (
     <div className="absolute z-[99] p-0 m-0 w-full h-full flex flex-cols items-center justify-center bg-[#222222]">
-      <div className="w-full flex flex-col h-full rounded-xl bg-[#01B2FF]">
+      <div className="w-full flex flex-col h-full rounded-xl bg-[#e23795]">
         <div className="w-full flex flex-col items-center justify-center pt-14 pb-4">
           <p className="text-lg font-bold text-white uppercase">Thêm bé</p>
           <p className="text-lg font-medium text-white">
@@ -122,7 +122,7 @@ const AddBaby = () => {
                   className="w-32 h-32 rounded-2xl object-cover"
                 />
                 <div className="absolute w-full  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
-                  <p className="text-[#01B2FF] text-sm font-normal">
+                  <p className="text-[#e23795] text-sm font-normal">
                     Mặc định theo bé
                   </p>
                 </div>
@@ -133,7 +133,7 @@ const AddBaby = () => {
                   onClick={() => setGender("male")}
                   className=" flex items-center justify-center rounded-2xl mb-4 py-2 "
                   style={{
-                    backgroundColor: gender === "male" ? "#01B2FF" : "#DEDEDE",
+                    backgroundColor: gender === "male" ? "#e23795" : "#DEDEDE",
                   }}
                 >
                   {gender === "male" ? (
@@ -187,7 +187,7 @@ const AddBaby = () => {
                   className=" flex items-center justify-center mt-4 rounded-2xl py-2"
                   style={{
                     backgroundColor:
-                      gender === "female" ? "#01B2FF" : "#DEDEDE",
+                      gender === "female" ? "#e23795" : "#DEDEDE",
                   }}
                 >
                   {gender === "female" ? (
@@ -247,7 +247,7 @@ const AddBaby = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <p className="font-normal text-sm text-[#01B2FF] my-2">
+            <p className="font-normal text-sm text-[#e23795] my-2">
               Ngày tháng năm sinh của bé
             </p>
             <div className="flex items-center ">
@@ -306,8 +306,8 @@ const AddBaby = () => {
                 }}
               />
             </div>
-            <div className="w-full h-[2px] bg-[#01B2FF] mt-1"></div>
-            <p className="font-normal text-sm text-[#01B2FF] my-2">Bạn là:</p>
+            <div className="w-full h-[2px] bg-[#e23795] mt-1"></div>
+            <p className="font-normal text-sm text-[#e23795] my-2">Bạn là:</p>
             <div
               className="flex items-center w-full"
               onClick={() => setSheetVisible(true)}
@@ -374,7 +374,7 @@ const AddBaby = () => {
                 </defs>
               </svg>
             </div>
-            <div className="w-full h-[2px] bg-[#01B2FF] mt-1 mb-3"></div>
+            <div className="w-full h-[2px] bg-[#e23795] mt-1 mb-3"></div>
             <Sheet
               visible={sheetVisible}
               onClose={() => setSheetVisible(false)}
@@ -395,7 +395,7 @@ const AddBaby = () => {
                         className="w-full flex items-center justify-center py-1"
                         style={{
                           backgroundColor:
-                            item === position ? "#01B2FF" : "transparent",
+                            item === position ? "#e23795" : "transparent",
                         }}
                         key={item.id}
                         onClick={() => {
@@ -419,7 +419,7 @@ const AddBaby = () => {
             {/* done  */}
             <div
               onClick={onConfirm}
-              className="flex items-center justify-center w-full bg-[#01B2FF] rounded-2xl mx-auto py-2 my-4 mt-10 "
+              className="flex items-center justify-center w-full bg-[#e23795] rounded-2xl mx-auto py-2 my-4 mt-10 "
             >
               <p className="text-base text-white text-center mr-1">Xong</p>
               <svg width="15" height="8" viewBox="0 0 15 8" fill="none">

@@ -104,7 +104,7 @@ const Home = () => {
   const [page, setPage] = React.useState<number>(1);
   const [lastPage, setLastPage] = React.useState<number>(1);
   const [listProblem, setListProblem] = React.useState<any[]>([]);
-  const [showFollow, setShowFollow] = React.useState<boolean>(false);
+  // const [showFollow, setShowFollow] = React.useState<boolean>(false);
   const [listProductAccordingProblem, setListProductAccordingProblem] =
     React.useState<DetailProblem[]>([]);
   const refListBaby = React.useRef(null);
@@ -175,45 +175,42 @@ const Home = () => {
       }
     }
   };
-  const saveFollowOA = async () => {
-    try {
-      let formData = new FormData();
-      formData.append("phone", String(phoneUser));
-      formData.append("type", "1");
-      const res = await profileApi.savefollowOA(formData);
-      setShowFollow(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const checkFollowOA = async () => {
-    try {
-      let formData = new FormData();
-      formData.append("phone", String(phoneUser));
-      const res = await profileApi.checkFollow(formData);
-      if (res.status) {
-        if (res.data.type === 0) {
-          setShowFollow(true);
-        } else {
-          setShowFollow(false);
-        }
-      } else {
-        alert("có lỗi xảy ra");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const saveFollowOA = async () => {
+  //   try {
+  //     let formData = new FormData();
+  //     formData.append("phone", String(phoneUser));
+  //     formData.append("type", "1");
+  //     const res = await profileApi.savefollowOA(formData);
+  //     setShowFollow(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // const checkFollowOA = async () => {
+  //   try {
+  //     let formData = new FormData();
+  //     formData.append("phone", String(phoneUser));
+  //     const res = await profileApi.checkFollow(formData);
+  //     if (res.status) {
+  //       if (res.data.type === 0) {
+  //         setShowFollow(true);
+  //       } else {
+  //         setShowFollow(false);
+  //       }
+  //     } else {
+  //       alert("có lỗi xảy ra");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   const addMilestonWithMonthBaby = async () => {
-    console.log(selectedBaby);
     try {
       let formData = new FormData();
       formData.append("id_user_profiles", String(selectedBaby?.id));
       formData.append("id_month", String(selectedBaby?.realAge));
-      console.log("selectedBaby?.realAge", selectedBaby?.realAge);
       const res = await profileApi.addMilestonWithMonthBaby(formData);
       if (res.status) {
-        console.log("selectedBaby", res.data);
         getHealthRecord();
       } else {
         alert("có lỗi xảy ra");
@@ -242,35 +239,36 @@ const Home = () => {
     }
   };
   const getHealthRecord = async () => {
-    try {
-      let formData = new FormData();
-      setLoadingIndex(true);
-      formData.append("id_month", `${selectedBaby?.realAge}`);
-      formData.append("id_user_profiles", `${selectedBaby?.id}`);
-      const res = await profileApi.getHealthRecord(formData);
-      if (res.status) {
-        setGrossMotor(res?.data?.data[111111].category);
-        setFineMotor(res?.data?.data[222222].category);
-        setLanguage(res?.data?.data[333333].category);
-        setAwareness(res?.data?.data[444444].category);
-        setIndependentr(res?.data?.data[555555].category);
-        setSocialEmotions(res?.data?.data[666666].category);
-        setSense(res?.data?.data[777777].category);
-      } else {
+    if (!!selectedBaby) {
+      try {
+        let formData = new FormData();
         setLoadingIndex(true);
-        alert("có lỗi xảy ra");
+        formData.append("id_month", `${selectedBaby?.realAge}`);
+        formData.append("id_user_profiles", `${selectedBaby?.id}`);
+        const res = await profileApi.getHealthRecord(formData);
+        if (res.status) {
+          setGrossMotor(res?.data?.data[111111].category);
+          setFineMotor(res?.data?.data[222222].category);
+          setLanguage(res?.data?.data[333333].category);
+          setAwareness(res?.data?.data[444444].category);
+          setIndependentr(res?.data?.data[555555].category);
+          setSocialEmotions(res?.data?.data[666666].category);
+          setSense(res?.data?.data[777777].category);
+        } else {
+          setLoadingIndex(true);
+          alert("có lỗi xảy ra");
+        }
+      } catch (error) {
+        setLoadingIndex(true);
+        console.error("lỗi", error);
+      } finally {
+        setLoadingIndex(false);
       }
-    } catch (error) {
-      setLoadingIndex(true);
-      console.error(error);
-    } finally {
-      setLoadingIndex(false);
     }
   };
   const getProfile = async () => {
     try {
       const res = await profileApiC.getUserProfile();
-      console.log("res", res);
       setProfile(res.data.data.user);
       setListBaby(res.data.data.baby);
       saveListBabyToLS(res.data.data.baby);
@@ -287,13 +285,11 @@ const Home = () => {
     if (!phoneUser) {
       return;
     }
-    checkFollowOA();
+    // checkFollowOA();
   }, [phoneUser]);
 
   React.useEffect(() => {
-    // if (selectedBaby) {
     getHeightAndWeightWHO();
-    // }
     addMilestonWithMonthBaby();
   }, [selectedBaby]);
   React.useEffect(() => {
@@ -349,7 +345,6 @@ const Home = () => {
   // const [selectedBaby2, setSelectedBaby2] = React.useState<any>(
   //   localStorage.getItem("list_baby")
   // );
-  // console.log("selectedBaby2", selectedBaby);
   // @ts-ignore
   const InfoBae = ({
     // @ts-ignore
@@ -1079,7 +1074,7 @@ const Home = () => {
           popupVisible={showAlert2}
         />
       ) : null}
-      {showFollow && <CareOA onHandleFollow={saveFollowOA} />}
+      {/* {showFollow && <CareOA onHandleFollow={saveFollowOA} />} */}
     </div>
   );
 };
