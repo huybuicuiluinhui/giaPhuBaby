@@ -11,7 +11,6 @@ import SpinLoad from "../../../components/spinLoad";
 
 const ProgramVoucher = () => {
   const navigate = useNavigate();
-  const { openSnackbar } = useSnackbar();
 
   const [programVoucher, setProgramVoucher] = React.useState<ProgramVocher[]>(
     []
@@ -142,15 +141,16 @@ const ProgramVoucher = () => {
       >
         <div className="">
           {!!programVoucher &&
-            programVoucher.length &&
+            !!programVoucher.length &&
             programVoucher.map((item, i) => {
               return (
-                <ItemProgramVoucher
-                  key={i}
-                  name={item.title}
-                  status={item.status}
-                  describe={item.describe}
-                />
+                <div key={i}>
+                  <ItemProgramVoucher
+                    name={item.title}
+                    status={item.status}
+                    describe={item.describe}
+                  />
+                </div>
               );
             })}
         </div>

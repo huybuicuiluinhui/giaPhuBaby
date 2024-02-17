@@ -121,7 +121,7 @@ const AddBaby = () => {
                   }
                   className="w-32 h-32 rounded-2xl object-cover"
                 />
-                <div className="absolute w-full  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
+                <div className="absolute w-32  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
                   <p className="text-[#e23795] text-sm font-normal">
                     Mặc định theo bé
                   </p>

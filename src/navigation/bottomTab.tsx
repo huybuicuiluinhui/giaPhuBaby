@@ -37,7 +37,7 @@ const tabs = {
   },
 
   "/profile": {
-    label: "Thông tin bé",
+    label: "Tài khoản",
     icon: iconProfileTab,
     activeIcon: iconProfileTabActive,
   },

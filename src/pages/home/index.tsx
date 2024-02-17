@@ -795,6 +795,11 @@ const Home = () => {
                     onClick={() => {
                       if (item.screen === "") {
                         setShowAlert(true);
+                      } else if (
+                        item.screen === "/askDoctor" ||
+                        item.screen === path.community
+                      ) {
+                        setShowAlert(true);
                       } else {
                         navigate(item.screen);
                       }
@@ -967,6 +972,8 @@ const Home = () => {
             !!dataListShoppingHome?.data.data &&
             !!dataListShoppingHome.data.data.length &&
             dataListShoppingHome.data.data.map((item, index) => {
+              console.log("item.icon", item.icon);
+
               return (
                 <div className="bg-white rounded-xl my-4" key={index}>
                   <TitleHome
