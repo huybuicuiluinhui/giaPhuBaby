@@ -17,7 +17,6 @@ const ShowListBaby = React.forwardRef((props, ref) => {
   if (!show) {
     return <div></div>;
   }
-
   return (
     <div
       className="w-full h-full fixed top-0 bg-[#000000] z-[9999] bg-opacity-40"

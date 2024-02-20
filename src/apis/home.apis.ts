@@ -1,4 +1,5 @@
 // import { AuthResponse } from "../types/auth.type";
+import { baseUrl } from "../api";
 import {
   BlogHomePageModel,
   LessonUpdateLikeModel,
@@ -70,7 +71,7 @@ const homeApi = {
   listShoppingHome: () =>
     http.get<SuccessResponse<ListShoppingHome[]>>("/api/shopping_list"),
   caculateMoneyHome: () => http.get("/api/data_calculate_money"),
-  infoPercentBaby: (params:any) => {
+  infoPercentBaby: (params: any) => {
     let formData = new FormData();
     formData.append("user_profiles_id", params.user_profiles_id);
     formData.append("month", params.month);
@@ -78,5 +79,6 @@ const homeApi = {
   },
   getCategory: () =>
     http.get<SuccessResponse<{ id: number; name: string }[]>>("/api/category"),
+  uploadImg: () => baseUrl + "api/image",
 };
 export default homeApi;

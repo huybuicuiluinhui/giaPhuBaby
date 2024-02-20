@@ -52,7 +52,6 @@ const Milestones = () => {
       });
 
       if (res.data.code === 200) {
-        console.log("ahihihihi", res.data);
         setDataDetail(res?.data?.data?.data);
       }
     } catch (error) {

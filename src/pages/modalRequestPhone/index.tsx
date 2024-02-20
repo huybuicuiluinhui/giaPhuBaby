@@ -51,7 +51,6 @@ const ModalRequestPhone = () => {
       try {
         setLoading(true);
         const body = { phone: phoneInput };
-        console.log(phoneInput);
         const res = await authApi.login(body);
         if (res.data.code === 200) {
           const phone = res.data?.data?.user?.userName;
@@ -101,7 +100,7 @@ const ModalRequestPhone = () => {
           </p>
           <p className=" font-semibold text-base leading-6 mt-2">
             Chào mừng bạn đến với chương trình “Trở thành Bác sĩ của con cùng{" "}
-            {NAME_MINI_WEB}. Với bảo trợ chuyên môn từ Bác sĩ Chuyên khoa II
+            {NAME_MINI_WEB}". Với sự bảo trợ chuyên môn từ Bác sĩ Chuyên khoa II
             Hoàng Quốc Tưởng, {NAME_MINI_WEB} sẽ trở thành một trợ lý đắc lực,
             giúp bạn nuôi con khoa học và đơn giản. Hãy nhập số điện thoại để
             bắt đầu ngay bây giờ!

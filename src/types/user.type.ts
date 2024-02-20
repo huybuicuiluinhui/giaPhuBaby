@@ -87,7 +87,7 @@ export interface BabyModel {
 export interface CreateBabyConfig {
   user_id: number | string;
   name?: string;
-  image?: string | null;
+  image?: string | null | File;
   gender?: "male" | "female";
   dob?: string;
   isEarly?: boolean;
@@ -99,7 +99,7 @@ export interface CreateBabyConfig {
 export interface BabyUpdateModel {
   user_id: number | string;
   name?: string;
-  image?: string | null;
+  image?: string | null | File;
   gender?: "male" | "female";
   dob?: string;
   isEarly?: boolean;

@@ -9,17 +9,19 @@ import { CreateBabyConfig } from "../../types/user.type";
 import { AppContext } from "../../contexts/app.context";
 import { saveListBabyToLS } from "../../utils/auth";
 import profileApiC from "../../apis/profileC.apis";
+import homeApi from "../../apis/home.apis";
+import axios from "axios";
 
 const AddBaby = () => {
   const { profile, setSelectedBaby, setProfile, setListBaby } =
     useContext(AppContext);
-  const [avatar, setAvatar] = React.useState<string>("");
   const [gender, setGender] = React.useState<"male" | "female">("male");
   const [name, setName] = React.useState<string>("");
   const [dayChoose, setDayChoose] = useState(new Date());
   const [isEarly, setIsEarly] = useState<boolean>(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-
+  const [avatar, setAvatar] = useState<string>("");
+  const [avatarPush, setAvatarPush] = useState<string>("");
   const [position, setPosition] = useState<{
     id: string | null;
     value: string;
@@ -31,7 +33,6 @@ const AddBaby = () => {
   const [sheetVisible, setSheetVisible] = useState(false);
 
   const { openSnackbar } = useSnackbar();
-
   const checkEmpty = () => {
     try {
       if (name.length === 0) {
@@ -110,7 +111,12 @@ const AddBaby = () => {
         <div className="flex-1 bg-white overflow-y-auto no-scrollbar rounded-t-xl -mt-1">
           <div className="h-full w-[75%] mx-auto">
             <div className="pt-6 flex items-center w-full">
-              <div className="relative flex-1">
+              <div
+                className="relative flex-1"
+                onClick={() => {
+                  // updateImage();
+                }}
+              >
                 <img
                   src={
                     avatar

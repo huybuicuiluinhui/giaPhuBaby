@@ -20,12 +20,12 @@ export const listAccessHome = [
   {
     title: "Hỏi đáp bác sĩ",
     icon: Images.iconDoctorHome,
-    screen: "/askDoctor",
+    screen: "",
   },
   {
     title: "Cộng đồng",
     icon: Images.iconcommunityHome,
-    screen: path.community,
+    screen: "",
   },
   {
     title: "Đơn hàng",

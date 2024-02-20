@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DatePicker, Sheet, useSnackbar } from "zmp-ui";
-import { FEMALE_IMAGE, MALE_IMAGE } from "../../constants/utils";
+import { API_URL, FEMALE_IMAGE, MALE_IMAGE } from "../../constants/utils";
 import "./styles.css";
 import moment from "moment";
 import {
@@ -15,6 +15,8 @@ import InputBaby from "../addBaby/inputBaby";
 import { dataFamily } from "../addBaby/family";
 import { useLocation, useNavigate } from "react-router-dom";
 import profileApiC from "../../apis/profileC.apis";
+import homeApi from "../../apis/home.apis";
+import axios from "axios";
 const EditBaby = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,6 +37,7 @@ const EditBaby = () => {
   const [monthEarly, setMonthEarly] = useState<string | number>(0);
   const [weight, setWeight] = useState<string | number>("");
   const [height, setHeight] = useState<string | number>("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [position, setPosition] = useState<{
     id: string | null;
     value: string;
@@ -44,7 +47,15 @@ const EditBaby = () => {
   });
 
   const [sheetVisible, setSheetVisible] = useState(false);
-
+  useEffect(() => {
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatar(reader.result as string);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  }, [selectedFile]);
   const { openSnackbar } = useSnackbar();
   const checkEmpty = () => {
     try {
@@ -72,47 +83,8 @@ const EditBaby = () => {
         });
         return false;
       }
-      // if (isEarly) {
-      //   if (Number(monthEarly) === 0 || !monthEarly) {
-      //     openSnackbar({
-      //       position: "top",
-
-      //       text: "Bé của bạn sinh non? Vui lòng điền số tuần sinh non của bé",
-      //       verticalAction: true,
-      //       type: "default",
-      //       icon: true,
-      //       duration: 1500,
-      //     });
-      //     return false;
-      //   }
-      // }
-      // if (!weight) {
-      //   openSnackbar({
-      //     position: "top",
-
-      //     text: "Hãy điền cân nặng của bé",
-      //     verticalAction: true,
-      //     type: "default",
-      //     icon: true,
-      //     duration: 1500,
-      //   });
-      //   return false;
-      // }
-      // if (!height) {
-      //   openSnackbar({
-      //     position: "top",
-
-      //     text: "Hãy điền chiều cao của bé",
-      //     verticalAction: true,
-      //     type: "default",
-      //     icon: true,
-      //     duration: 1500,
-      //   });
-      //   return false;
-      // }
       return true;
     } catch (error) {
-      // Utilities.log(error);
       return false;
     }
   };
@@ -126,13 +98,22 @@ const EditBaby = () => {
       const filteredList = res.data.data.baby.filter(
         (item) => item.name === name
       );
-      console.log(filteredList[0]);
       setSelectedBaby(filteredList[0]);
     } catch (error) {
       console.log(error);
     }
   };
   const handleEdit = async () => {
+    let formData = new FormData();
+    formData.append("image", !!selectedFile ? selectedFile : "");
+    const res = await axios({
+      url: `${API_URL}/api/image`,
+      method: "post",
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     if (checkEmpty()) {
       const objBaby: BabyUpdateModel = {
         // @ts-ignore
@@ -141,7 +122,7 @@ const EditBaby = () => {
         dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
         // @ts-ignore
         gender,
-        image: avatar.length > 0 ? avatar : null,
+        image: !!res.data?.path.image ? res.data?.path.image : null,
         isEarly,
         earlyAge: isEarly ? Number(monthEarly) : 0,
         // @ts-ignore
@@ -181,7 +162,28 @@ const EditBaby = () => {
     }
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatar(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   const handleAddBaby = async () => {
+    let formData = new FormData();
+    formData.append("image", !!selectedFile ? selectedFile : "");
+    const res = await axios({
+      url: `${API_URL}/api/image`,
+      method: "post",
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     if (checkEmpty()) {
       const objBaby: CreateBabyConfig = {
         // @ts-ignore
@@ -190,7 +192,7 @@ const EditBaby = () => {
         dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
         // @ts-ignore
         gender,
-        image: avatar.length > 0 ? avatar : null,
+        image: !!res.data?.path.image ? res.data?.path.image : null,
         isEarly,
         earlyAge: isEarly ? Number(monthEarly) : 0,
         pamily: position.id || null,
@@ -227,7 +229,6 @@ const EditBaby = () => {
   };
 
   const onConfirm = () => {
-    console.log("type", type);
     if (type === 1) {
       handleEdit();
     } else {
@@ -353,10 +354,24 @@ const EditBaby = () => {
                   }
                   className="w-32 h-32 rounded-2xl object-cover"
                 />
-                <div className="absolute w-full  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
-                  <p className="text-main text-sm font-normal">
+                <div className="absolute w-32  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
+                  {/* <p className="text-main text-sm font-normal">
                     {"Mặc định theo bé"}
-                  </p>
+                  </p> */}
+
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="hidden"
+                    id="file-input"
+                  />
+                  <label
+                    htmlFor="file-input"
+                    className="cursor-pointer   text-gray-500 py-2 px-4 rounded-md hover:bg-[#dbdada] transition duration-300  border-[2px] border-[#f5f5f5]"
+                  >
+                    Chọn ảnh
+                  </label>
                 </div>
               </div>
               {/* avatar và giới tính  */}
