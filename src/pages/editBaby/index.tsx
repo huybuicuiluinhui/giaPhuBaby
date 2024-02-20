@@ -104,61 +104,107 @@ const EditBaby = () => {
     }
   };
   const handleEdit = async () => {
-    let formData = new FormData();
-    formData.append("image", !!selectedFile ? selectedFile : "");
-    const res = await axios({
-      url: `${API_URL}/api/image`,
-      method: "post",
-      data: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    if (checkEmpty()) {
-      const objBaby: BabyUpdateModel = {
-        // @ts-ignore
-        user_id: profile.id,
-        name,
-        dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
-        // @ts-ignore
-        gender,
-        image: !!res.data?.path.image ? res.data?.path.image : null,
-        isEarly,
-        earlyAge: isEarly ? Number(monthEarly) : 0,
-        // @ts-ignore
-        pamily: position.id || null,
-        weight: Number(weight),
-        height: Number(height),
-      };
+    if (!!selectedFile) {
+      let formData = new FormData();
+      formData.append("image", !!selectedFile ? selectedFile : "");
+      const res = await axios({
+        url: `${API_URL}/api/image`,
+        method: "post",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      if (checkEmpty()) {
+        const objBaby: BabyUpdateModel = {
+          // @ts-ignore
+          user_id: profile.id,
+          name,
+          dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
+          // @ts-ignore
+          gender,
+          image: !!res.data?.path.image ? res.data?.path.image : null,
+          isEarly,
+          earlyAge: isEarly ? Number(monthEarly) : 0,
+          // @ts-ignore
+          pamily: position.id || null,
+          weight: Number(weight),
+          height: Number(height),
+        };
 
-      try {
-        // @ts-ignore
-        const res = await profileApiC.editBaby(babyId, objBaby);
-        if (res.data.code === 200) {
-          const res = await profileApiC.getUserProfile();
-          setProfile(res.data.data.user);
-          setListBaby(res.data.data.baby);
-          saveListBabyToLS(res.data.data.baby);
-          navigate(-1);
+        try {
+          // @ts-ignore
+          const res = await profileApiC.editBaby(babyId, objBaby);
+          if (res.data.code === 200) {
+            const res = await profileApiC.getUserProfile();
+            setProfile(res.data.data.user);
+            setListBaby(res.data.data.baby);
+            saveListBabyToLS(res.data.data.baby);
+            navigate(-1);
 
-          getProfile(name);
-          openSnackbar({
-            position: "top",
+            getProfile(name);
+            openSnackbar({
+              position: "top",
 
-            text: "Cập nhật thành công",
-            verticalAction: true,
-            type: "default",
-            icon: true,
-            duration: 2500,
-          });
-        } else {
-          alert("Cập nhật thất bại");
+              text: "Cập nhật thành công",
+              verticalAction: true,
+              type: "default",
+              icon: true,
+              duration: 2500,
+            });
+          } else {
+            alert("Cập nhật thất bại");
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        return;
       }
     } else {
-      return;
+      if (checkEmpty()) {
+        const objBaby: BabyUpdateModel = {
+          // @ts-ignore
+          user_id: profile.id,
+          name,
+          dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
+          // @ts-ignore
+          gender,
+          image: avatar.length > 0 ? avatar : null,
+          isEarly,
+          earlyAge: isEarly ? Number(monthEarly) : 0,
+          // @ts-ignore
+          pamily: position.id || null,
+          weight: Number(weight),
+          height: Number(height),
+        };
+        try {
+          // @ts-ignore
+          const res = await profileApi.editBaby(babyId, objBaby);
+          if (res.data.code === 200) {
+            const res = await profileApi.getUserProfile();
+            setProfile(res.data.data.user);
+            setListBaby(res.data.data.baby);
+            saveListBabyToLS(res.data.data.baby);
+            navigate(-1);
+            openSnackbar({
+              position: "top",
+
+              text: "Cập nhật thành công",
+              verticalAction: true,
+              type: "default",
+              icon: true,
+              duration: 2500,
+            });
+          } else {
+            alert("Cập nhật thất bại");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        return;
+      }
     }
   };
 
@@ -174,57 +220,106 @@ const EditBaby = () => {
     }
   };
   const handleAddBaby = async () => {
-    let formData = new FormData();
-    formData.append("image", !!selectedFile ? selectedFile : "");
-    const res = await axios({
-      url: `${API_URL}/api/image`,
-      method: "post",
-      data: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    if (checkEmpty()) {
-      const objBaby: CreateBabyConfig = {
-        // @ts-ignore
-        user_id: profile?.id,
-        name,
-        dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
-        // @ts-ignore
-        gender,
-        image: !!res.data?.path.image ? res.data?.path.image : null,
-        isEarly,
-        earlyAge: isEarly ? Number(monthEarly) : 0,
-        pamily: position.id || null,
-        weight: Number(weight),
-        height: Number(height),
-      };
-      try {
-        const res = await profileApiC.createBaby(objBaby);
-        if (res.data.code === 200) {
-          const res = await profileApiC.getUserProfile();
-          setProfile(res.data.data.user);
-          setListBaby(res.data.data.baby);
-          saveListBabyToLS(res.data.data.baby);
-          setSelectedBaby(res.data.data.baby[res.data.data.baby.length - 1]);
-          navigate(-1);
-          openSnackbar({
-            position: "top",
+    if (!!selectedFile) {
+      let formData = new FormData();
+      formData.append("image", !!selectedFile ? selectedFile : "");
+      const res = await axios({
+        url: `${API_URL}/api/image`,
+        method: "post",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      if (checkEmpty()) {
+        const objBaby: CreateBabyConfig = {
+          // @ts-ignore
+          user_id: profile?.id,
+          name,
+          dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
+          // @ts-ignore
+          gender,
+          image: !!res.data?.path.image
+            ? res.data?.path.image
+            : !!avatar
+            ? avatar
+            : null,
+          isEarly,
+          earlyAge: isEarly ? Number(monthEarly) : 0,
+          pamily: position.id || null,
+          weight: Number(weight),
+          height: Number(height),
+        };
+        try {
+          const res = await profileApiC.createBaby(objBaby);
+          if (res.data.code === 200) {
+            const res = await profileApiC.getUserProfile();
+            setProfile(res.data.data.user);
+            setListBaby(res.data.data.baby);
+            saveListBabyToLS(res.data.data.baby);
+            setSelectedBaby(res.data.data.baby[res.data.data.baby.length - 1]);
+            navigate(-1);
+            openSnackbar({
+              position: "top",
 
-            text: "Thêm thành công",
-            verticalAction: true,
-            type: "default",
-            icon: true,
-            duration: 2500,
-          });
-        } else {
-          alert("Tạo thất bại");
+              text: "Thêm thành công",
+              verticalAction: true,
+              type: "default",
+              icon: true,
+              duration: 2500,
+            });
+          } else {
+            alert("Tạo thất bại");
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        return;
       }
     } else {
-      return;
+      if (checkEmpty()) {
+        const objBaby: CreateBabyConfig = {
+          //@ts-ignore
+          user_id: profile.id,
+          name,
+          dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
+          //@ts-ignore
+          gender,
+          image: avatar.length > 0 ? avatar : null,
+          isEarly,
+          earlyAge: isEarly ? Number(monthEarly) : 0,
+          pamily: position.id || null,
+          weight: Number(weight),
+          height: Number(height),
+        };
+        try {
+          const res = await profileApi.createBaby(objBaby);
+          if (res.data.code === 200) {
+            const res = await profileApi.getUserProfile();
+            setProfile(res.data.data.user);
+            setListBaby(res.data.data.baby);
+            saveListBabyToLS(res.data.data.baby);
+            setSelectedBaby(res.data.data.baby[res.data.data.baby.length - 1]);
+            navigate(-1);
+            openSnackbar({
+              position: "top",
+
+              text: "Thêm thành công",
+              verticalAction: true,
+              type: "default",
+              icon: true,
+              duration: 2500,
+            });
+          } else {
+            alert("Tạo thất bại");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        return;
+      }
     }
   };
 
