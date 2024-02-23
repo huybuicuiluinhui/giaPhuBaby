@@ -299,7 +299,7 @@ const Home = () => {
   }, [page]);
   React.useEffect(() => {
     setPage(1);
-    setListProblem([]);
+    // setListProblem([]);
   }, [selectedBaby]);
   React.useEffect(() => {
     getProblemListSelected();

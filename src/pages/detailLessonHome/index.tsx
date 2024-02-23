@@ -112,7 +112,7 @@ const DetailLessonHome = () => {
     if (res.data.code === 200) {
       openSnackbar({
         position: "top",
-
+        zIndex: 10000,
         text: "Cập nhật trạng thái thành công",
         verticalAction: true,
         type: "success",
@@ -122,7 +122,6 @@ const DetailLessonHome = () => {
     } else {
       openSnackbar({
         position: "top",
-
         text: res.data?.message,
         verticalAction: true,
         type: "error",

@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DatePicker, Sheet, useSnackbar } from "zmp-ui";
-import { FEMALE_IMAGE, MALE_IMAGE } from "../../constants/utils";
+import { API_URL, FEMALE_IMAGE, MALE_IMAGE } from "../../constants/utils";
 import "./styles.css";
 import InputBaby from "./inputBaby";
 import moment from "moment";
@@ -9,19 +9,19 @@ import { CreateBabyConfig } from "../../types/user.type";
 import { AppContext } from "../../contexts/app.context";
 import { saveListBabyToLS } from "../../utils/auth";
 import profileApiC from "../../apis/profileC.apis";
-import homeApi from "../../apis/home.apis";
 import axios from "axios";
 
 const AddBaby = () => {
   const { profile, setSelectedBaby, setProfile, setListBaby } =
     useContext(AppContext);
+  const [avatar, setAvatar] = React.useState<string>("");
   const [gender, setGender] = React.useState<"male" | "female">("male");
   const [name, setName] = React.useState<string>("");
   const [dayChoose, setDayChoose] = useState(new Date());
   const [isEarly, setIsEarly] = useState<boolean>(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [avatar, setAvatar] = useState<string>("");
-  const [avatarPush, setAvatarPush] = useState<string>("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
   const [position, setPosition] = useState<{
     id: string | null;
     value: string;
@@ -32,7 +32,27 @@ const AddBaby = () => {
 
   const [sheetVisible, setSheetVisible] = useState(false);
 
+  useEffect(() => {
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatar(reader.result as string);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  }, [selectedFile]);
   const { openSnackbar } = useSnackbar();
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatar(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   const checkEmpty = () => {
     try {
       if (name.length === 0) {
@@ -64,44 +84,95 @@ const AddBaby = () => {
   };
 
   const onConfirm = async () => {
-    if (checkEmpty() && !buttonDisabled) {
-      setButtonDisabled(true);
-      const objBaby: CreateBabyConfig = {
-        user_id: profile?.id || 0,
-        name,
-        dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
-        gender,
-        image: avatar.length > 0 ? avatar : null,
-        isEarly,
-        earlyAge: isEarly ? Number(0) : 0,
-        pamily: position.id || null,
-        weight: Number(0),
-        height: Number(0),
-      };
-      try {
-        const res = await profileApiC.createBaby(objBaby);
-        if (res.data.code === 200) {
-          const res = await profileApiC.getUserProfile();
-          setProfile(res.data.data.user);
-          setListBaby(res.data.data.baby);
-          saveListBabyToLS(res.data.data.baby);
-          setSelectedBaby(res.data.data.baby[0]);
-        } else {
-          alert("Tạo thất bại");
+    if (!!selectedFile) {
+      let formData = new FormData();
+      formData.append("image", !!selectedFile ? selectedFile : "");
+      const res = await axios({
+        url: `${API_URL}/api/image`,
+        method: "post",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log("ressssssssss", res);
+      if (checkEmpty() && !buttonDisabled) {
+        setButtonDisabled(true);
+        const objBaby: CreateBabyConfig = {
+          user_id: profile?.id || 0,
+          name,
+          dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
+          gender,
+          image: !!res.data?.path.image
+            ? res.data?.path.image
+            : !!avatar
+            ? avatar
+            : null,
+          isEarly,
+          earlyAge: isEarly ? Number(0) : 0,
+          pamily: position.id || null,
+          weight: Number(0),
+          height: Number(0),
+        };
+        try {
+          const res = await profileApiC.createBaby(objBaby);
+          if (res.data.code === 200) {
+            const res = await profileApiC.getUserProfile();
+            setProfile(res.data.data.user);
+            setListBaby(res.data.data.baby);
+            saveListBabyToLS(res.data.data.baby);
+            setSelectedBaby(res.data.data.baby[0]);
+          } else {
+            alert("Tạo thất bại");
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setButtonDisabled(false);
         }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setButtonDisabled(false);
+      } else {
+        return;
       }
     } else {
-      return;
+      if (checkEmpty() && !buttonDisabled) {
+        setButtonDisabled(true);
+        const objBaby: CreateBabyConfig = {
+          user_id: profile?.id || 0,
+          name,
+          dob: moment(dayChoose).utcOffset(7).format("YYYY-MM-DD"),
+          gender,
+          image: avatar.length > 0 ? avatar : null,
+          isEarly,
+          earlyAge: isEarly ? Number(0) : 0,
+          pamily: position.id || null,
+          weight: Number(0),
+          height: Number(0),
+        };
+        try {
+          const res = await profileApiC.createBaby(objBaby);
+          if (res.data.code === 200) {
+            const res = await profileApiC.getUserProfile();
+            setProfile(res.data.data.user);
+            setListBaby(res.data.data.baby);
+            saveListBabyToLS(res.data.data.baby);
+            setSelectedBaby(res.data.data.baby[0]);
+          } else {
+            alert("Tạo thất bại");
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setButtonDisabled(false);
+        }
+      } else {
+        return;
+      }
     }
   };
-
+  console.log("buttonDisabled", buttonDisabled);
   return (
     <div className="absolute z-[99] p-0 m-0 w-full h-full flex flex-cols items-center justify-center bg-[#222222]">
-      <div className="w-full flex flex-col h-full rounded-xl bg-[#e23795]">
+      <div className="w-full flex flex-col h-full rounded-xl bg-[#e9636e]">
         <div className="w-full flex flex-col items-center justify-center pt-14 pb-4">
           <p className="text-lg font-bold text-white uppercase">Thêm bé</p>
           <p className="text-lg font-medium text-white">
@@ -111,12 +182,7 @@ const AddBaby = () => {
         <div className="flex-1 bg-white overflow-y-auto no-scrollbar rounded-t-xl -mt-1">
           <div className="h-full w-[75%] mx-auto">
             <div className="pt-6 flex items-center w-full">
-              <div
-                className="relative flex-1"
-                onClick={() => {
-                  // updateImage();
-                }}
-              >
+              <div className="relative flex-1">
                 <img
                   src={
                     avatar
@@ -128,9 +194,19 @@ const AddBaby = () => {
                   className="w-32 h-32 rounded-2xl object-cover"
                 />
                 <div className="absolute w-32  flex items-center justify-center bottom-0 rounded-2xl bg-white bg-opacity-60 py-1">
-                  <p className="text-[#e23795] text-sm font-normal">
-                    Mặc định theo bé
-                  </p>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="hidden"
+                    id="file-input"
+                  />
+                  <label
+                    htmlFor="file-input"
+                    className="cursor-pointer   text-gray-500 py-2 px-4 rounded-md hover:bg-[#dbdada] transition duration-300  border-[2px] border-[#f5f5f5]"
+                  >
+                    Chọn ảnh
+                  </label>
                 </div>
               </div>
               {/* avatar và giới tính  */}
@@ -139,7 +215,7 @@ const AddBaby = () => {
                   onClick={() => setGender("male")}
                   className=" flex items-center justify-center rounded-2xl mb-4 py-2 "
                   style={{
-                    backgroundColor: gender === "male" ? "#e23795" : "#DEDEDE",
+                    backgroundColor: gender === "male" ? "#e9636e" : "#DEDEDE",
                   }}
                 >
                   {gender === "male" ? (
@@ -193,7 +269,7 @@ const AddBaby = () => {
                   className=" flex items-center justify-center mt-4 rounded-2xl py-2"
                   style={{
                     backgroundColor:
-                      gender === "female" ? "#e23795" : "#DEDEDE",
+                      gender === "female" ? "#e9636e" : "#DEDEDE",
                   }}
                 >
                   {gender === "female" ? (
@@ -253,7 +329,7 @@ const AddBaby = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <p className="font-normal text-sm text-[#e23795] my-2">
+            <p className="font-normal text-sm text-[#e9636e] my-2">
               Ngày tháng năm sinh của bé
             </p>
             <div className="flex items-center ">
@@ -312,8 +388,8 @@ const AddBaby = () => {
                 }}
               />
             </div>
-            <div className="w-full h-[2px] bg-[#e23795] mt-1"></div>
-            <p className="font-normal text-sm text-[#e23795] my-2">Bạn là:</p>
+            <div className="w-full h-[2px] bg-[#e9636e] mt-1"></div>
+            <p className="font-normal text-sm text-[#e9636e] my-2">Bạn là:</p>
             <div
               className="flex items-center w-full"
               onClick={() => setSheetVisible(true)}
@@ -380,7 +456,7 @@ const AddBaby = () => {
                 </defs>
               </svg>
             </div>
-            <div className="w-full h-[2px] bg-[#e23795] mt-1 mb-3"></div>
+            <div className="w-full h-[2px] bg-[#e9636e] mt-1 mb-3"></div>
             <Sheet
               visible={sheetVisible}
               onClose={() => setSheetVisible(false)}
@@ -401,7 +477,7 @@ const AddBaby = () => {
                         className="w-full flex items-center justify-center py-1"
                         style={{
                           backgroundColor:
-                            item === position ? "#e23795" : "transparent",
+                            item === position ? "#e9636e" : "transparent",
                         }}
                         key={item.id}
                         onClick={() => {
@@ -425,7 +501,7 @@ const AddBaby = () => {
             {/* done  */}
             <div
               onClick={onConfirm}
-              className="flex items-center justify-center w-full bg-[#e23795] rounded-2xl mx-auto py-2 my-4 mt-10 "
+              className="flex items-center justify-center w-full bg-[#e9636e] rounded-2xl mx-auto py-2 my-4 mt-10 "
             >
               <p className="text-base text-white text-center mr-1">Xong</p>
               <svg width="15" height="8" viewBox="0 0 15 8" fill="none">
